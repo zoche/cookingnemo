@@ -17,337 +17,62 @@
             --border-color: #1f334d;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        .landing-page { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: radial-gradient(circle at center, #0c1b33 0%, #02060c 100%); border-bottom: 4px solid var(--accent-copper); padding: 2rem; text-align: center; }
+        .landing-image-wrapper { max-width: 600px; width: 100%; height: 75vh; display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; }
+        .landing-cover-img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; border: 3px solid var(--accent-copper); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9); }
+        .scroll-down-hint { color: var(--accent-gold-light); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 8px; animation: bounce 2s infinite; opacity: 0.8; }
+        .scroll-down-hint:hover { opacity: 1; color: var(--accent-gold); }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-8px); } 60% { transform: translateY(-4px); } }
 
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            padding: 0;
-            margin: 0;
-        }
-
-        /* LANDING PAGE / COVER SECTION */
-        .landing-page {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle at center, #0c1b33 0%, #02060c 100%);
-            position: relative;
-            overflow: hidden;
-            border-bottom: 4px solid var(--accent-copper);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .landing-image-wrapper {
-            max-width: 600px;
-            width: 100%;
-            height: 75vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .landing-cover-img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 8px;
-            border: 3px solid var(--accent-copper);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
-        }
-
-        .scroll-down-hint {
-            color: var(--accent-gold-light);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            animation: bounce 2s infinite;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .scroll-down-hint:hover {
-            opacity: 1;
-            color: var(--accent-gold);
-        }
-
-        .arrow-down {
-            font-size: 1.5rem;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-8px); }
-            60% { transform: translateY(-4px); }
-        }
-
-        /* HEADER / COOKBOOK MAIN HEADER */
-        header {
-            background: linear-gradient(135deg, #02060c 0%, #0c1b33 100%);
-            border-bottom: 3px solid var(--accent-copper);
-            padding: 4rem 2rem 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at center, rgba(200, 125, 85, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .title-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        h1 {
-            font-size: 3rem;
-            color: var(--accent-gold-light);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-            border-bottom: 2px solid var(--accent-copper);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--accent-copper);
-            font-style: italic;
-            margin-top: 1rem;
-            letter-spacing: 1px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 3rem;
-        }
-
-        @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            aside {
-                position: static !important;
-                height: auto !important;
-            }
-            .landing-image-wrapper {
-                height: 60vh;
-            }
-        }
-
-        aside {
-            position: sticky;
-            top: 2rem;
-            height: calc(100vh - 4rem);
-            overflow-y: auto;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        }
-
-        aside h3 {
-            color: var(--accent-gold);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-        }
-
-        aside ul {
-            list-style: none;
-        }
-
-        aside li {
-            margin-bottom: 0.75rem;
-        }
-
-        aside a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s, padding-left 0.2s;
-            display: block;
-        }
-
-        aside a:hover {
-            color: var(--accent-gold);
-            padding-left: 5px;
-        }
-
-        aside ul ul {
-            margin-top: 0.5rem;
-            margin-left: 1rem;
-            border-left: 1px solid var(--border-color);
-            padding-left: 0.75rem;
-        }
-
-        aside ul ul a {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        main {
-            background: rgba(12, 24, 41, 0.4);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2.5rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        }
-
-        section {
-            margin-bottom: 3.5rem;
-            scroll-margin-top: 2rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: var(--accent-gold);
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        h3 {
-            font-size: 1.4rem;
-            color: var(--accent-copper);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        h4 {
-            font-size: 1.1rem;
-            color: var(--text-main);
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .recipe-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 1.8rem;
-            margin-bottom: 2rem;
-            transition: border-color 0.2s;
-        }
-
-        .recipe-card:hover {
-            border-color: var(--accent-copper);
-        }
-
-        .recipe-meta {
-            font-size: 0.9rem;
-            color: var(--accent-copper);
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        ul, ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        li {
-            margin-bottom: 0.4rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        .badge {
-            background: rgba(200, 125, 85, 0.2);
-            color: var(--accent-copper);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-right: 6px;
-        }
-
-        .baker-pct {
-            color: var(--accent-gold);
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        a.external-link {
-            color: var(--accent-gold);
-            text-decoration: underline;
-        }
-
-        a.external-link:hover {
-            color: var(--accent-gold-light);
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            margin-top: 4rem;
-            font-size: 0.9rem;
-        }
+        header { background: linear-gradient(135deg, #02060c 0%, #0c1b33 100%); border-bottom: 3px solid var(--accent-copper); padding: 4rem 2rem 3rem 2rem; text-align: center; position: relative; overflow: hidden; }
+        h1 { font-size: 3rem; color: var(--accent-gold-light); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; border-bottom: 2px solid var(--accent-copper); display: inline-block; padding-bottom: 10px; }
+        .subtitle { font-size: 1.2rem; color: var(--accent-copper); font-style: italic; margin-top: 1rem; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; display: grid; grid-template-columns: 280px 1fr; gap: 3rem; }
+        
+        aside { position: sticky; top: 2rem; height: calc(100vh - 4rem); overflow-y: auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; }
+        aside h3 { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 1rem; text-transform: uppercase; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        aside ul { list-style: none; }
+        aside li { margin-bottom: 0.75rem; }
+        aside a { color: var(--text-main); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; display: block; }
+        aside a:hover { color: var(--accent-gold); padding-left: 5px; }
+        aside ul ul { margin-top: 0.5rem; margin-left: 1rem; border-left: 1px solid var(--border-color); padding-left: 0.75rem; }
+        
+        main { background: rgba(12, 24, 41, 0.4); border: 1px solid var(--border-color); border-radius: 8px; padding: 2.5rem; }
+        section { margin-bottom: 3.5rem; scroll-margin-top: 2rem; }
+        h2 { font-size: 2rem; color: var(--accent-gold); margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.4rem; color: var(--accent-copper); margin-top: 2rem; margin-bottom: 1rem; }
+        
+        .recipe-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.8rem; margin-bottom: 2rem; transition: border-color 0.2s; }
+        .recipe-card:hover { border-color: var(--accent-copper); }
+        .recipe-meta { font-size: 0.9rem; color: var(--accent-copper); margin-bottom: 1rem; font-style: italic; }
+        
+        /* Modernist Cuisine Table Styles */
+        table.modernist { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
+        table.modernist th { padding: 8px; color: var(--accent-gold); border-bottom: 2px solid var(--border-color); text-align: left; }
+        table.modernist td { padding: 8px; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+        table.modernist td:nth-child(3) { color: var(--accent-copper); font-weight: 500; white-space: nowrap; }
+        
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } aside { position: static; height: auto; } }
+        footer { text-align: center; padding: 3rem; color: var(--text-muted); border-top: 1px solid var(--border-color); margin-top: 4rem; }
     </style>
 </head>
 <body>
-
-    <!-- LANDING PAGE COVER -->
     <div class="landing-page">
         <div class="landing-image-wrapper">
-            <img src="title.jpg" alt="Capt. Nemo cooking 20,000 leagues below" class="landing-cover-img">
+            <img src="title.jpg" alt="Capt. Nemo cooking" class="landing-cover-img">
         </div>
-        <a href="#cookbook-content" class="scroll-down-hint">
-            <span>Kochbuch öffnen</span>
-            <span class="arrow-down">&#9660;</span>
-        </a>
+        <a href="#cookbook-content" class="scroll-down-hint"><span>Kochbuch öffnen</span><span class="arrow-down">&#9660;</span></a>
     </div>
-
+    
     <div id="cookbook-content">
         <header>
             <div class="title-container">
                 <h1>Capt. Nemo cooking<br>20,000 leagues below</h1>
-                <div class="subtitle">Eine fortlaufende Sammlung von Rezepten, Zubereitungstechniken und Equipment-Notizen.</div>
+                <div class="subtitle">Eine fortlaufende Sammlung von Rezepten (Modernist Cuisine Format).</div>
             </div>
         </header>
 
@@ -355,332 +80,612 @@
             <aside>
                 <h3>Inhaltsverzeichnis</h3>
                 <ul>
-                    <li><a href="#kapitel-1">1. Asiatische Wok- & Nudelgerichte</a>
+                    <li><a href="#kapitel-1">1. Wok- & Nudelgerichte</a>
                         <ul>
-                            <li><a href="#r-1-1">1.1 Shanghai Sesame Noodles</a></li>
+                            <li><a href="#r-1-1">1.1 Shanghai Noodles</a></li>
                             <li><a href="#r-1-2">1.2 Pad Krapao Neua</a></li>
                             <li><a href="#r-1-3">1.3 Dan Dan Nudeln</a></li>
                             <li><a href="#r-1-4">1.4 Mapo Tofu</a></li>
-                            <li><a href="#r-1-5">1.5 Sichuan Grüne Bohnen</a></li>
+                            <li><a href="#r-1-5">1.5 Sichuan Bohnen</a></li>
                             <li><a href="#r-1-6">1.6 Yaki Udon</a></li>
-                            <li><a href="#r-1-7">1.7 Wok-Kurzübersicht</a></li>
+                            <li><a href="#r-1-8">1.8 Dry-fried Aale</a></li>
+                            <li><a href="#r-1-9">1.9 Egg Fried Rice</a></li>
                         </ul>
                     </li>
-                    <li><a href="#kapitel-2">2. 10L Schnellkochtopf</a>
+                    <li><a href="#kapitel-2">2. Schnellkochtopf (10L)</a>
                         <ul>
-                            <li><a href="#r-2-1">2.1 Fleisch-Bohneneintopf</a></li>
-                            <li><a href="#r-2-2">2.2 Ganze Artischocken</a></li>
+                            <li><a href="#r-2-1">2.1 Bohneneintopf</a></li>
                             <li><a href="#r-2-3">2.3 Chili con Carne</a></li>
                             <li><a href="#r-2-4">2.4 Arrabbiata</a></li>
                         </ul>
                     </li>
-                    <li><a href="#kapitel-3">3. Klassiker & Grundrezepte</a>
+                    <li><a href="#kapitel-3">3. Klassiker & Basics</a>
                         <ul>
                             <li><a href="#r-3-1">3.1 Pesto-Varianten</a></li>
                             <li><a href="#r-3-2">3.2 Curry-Ketchup</a></li>
-                            <li><a href="#r-3-3">3.3 Semmelknödel & Pilzrahm</a></li>
                         </ul>
                     </li>
-                    <li><a href="#kapitel-4">4. Fermentation & Grundlagen</a>
+                    <li><a href="#kapitel-4">4. Fermentation</a>
                         <ul>
                             <li><a href="#r-4-1">4.1 Naturjoghurt</a></li>
-                            <li><a href="#r-4-2">4.2 Lakto-Chilisauce</a></li>
-                            <li><a href="#r-4-3">4.3 Quitten-Passionsfrucht</a></li>
+                            <li><a href="#r-4-2">4.2 Chilisauce</a></li>
                         </ul>
                     </li>
-                    <li><a href="#kapitel-5">5. Backen & Ofengerichte</a>
+                    <li><a href="#kapitel-5">5. Backen (Teige)</a>
                         <ul>
-                            <li><a href="#r-5-1">5.1 Brot, Baguette & Pizza</a></li>
-                            <li><a href="#r-5-2">5.2 Quiches & Tartes</a></li>
-                            <li><a href="#r-5-3">5.3 Ofengerichte & Saucen</a></li>
+                            <li><a href="#r-5-1">5.1 Baguette & Pizza</a></li>
                         </ul>
                     </li>
-                    <li><a href="#kapitel-6">6. Technik & Equipment</a></li>
                 </ul>
             </aside>
 
             <main>
-                <!-- KAPITEL 1 -->
                 <section id="kapitel-1">
                     <h2>Kapitel 1: Asiatische Wok- und Nudelgerichte</h2>
                     
                     <div class="recipe-card" id="r-1-1">
-    <h3>1.1 Shanghai-Style Sesame Noodles (Ma Jiang Mian) mit gerösteten Pilzen</h3>
-    <div class="recipe-meta">Portionen: 2 | Aktive Zeit: ca. 10 bis 15 Min.</div>
-    
-    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem;">
-        <thead>
-            <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
-                <th style="padding: 8px; color: var(--accent-gold);">ZUTAT</th>
-                <th style="padding: 8px; color: var(--accent-gold);">MENGE</th>
-                <th style="padding: 8px; color: var(--accent-gold);">SKAL.*</th>
-                <th style="padding: 8px; color: var(--accent-gold);">ZUBEREITUNG</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="border-bottom: 1px solid var(--border-color);">
-                <td style="padding: 8px;"><strong>Knoblauch</strong>, fein gehackt<br><strong>Chinesische Sesampaste</strong><br><strong>Erdnussbutter</strong>, cremig<br><strong>Zucker</strong><br><strong>Helle Sojasauce</strong><br><strong>Reisessig</strong></td>
-                <td style="padding: 8px;">4 g<br>30 g<br>30 g<br>4 g<br>15 g<br>10 g</td>
-                <td style="padding: 8px; color: var(--accent-copper);">1,8 %<br>13,3 %<br>13,3 %<br>1,8 %<br>6,7 %<br>4,4 %</td>
-                <td style="padding: 8px; vertical-align: top;">① In einer Schüssel mit einer Gabel verrühren (Masse ist zunächst sehr fest).</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--border-color);">
-                <td style="padding: 8px;"><strong>Chili-Öl</strong> inkl. Bodensatz<br><strong>Helle Sojasauce</strong><br><strong>Marmite</strong> (optional)</td>
-                <td style="padding: 8px;">55 g<br>15 g<br>3 g</td>
-                <td style="padding: 8px; color: var(--accent-copper);">24,4 %<br>6,7 %<br>1,3 %</td>
-                <td style="padding: 8px; vertical-align: top;">② In kleiner Schüssel verrühren, bis Marmite gelöst. Gleichmäßig auf Servierschüsseln verteilen.</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--border-color);">
-                <td style="padding: 8px;"><strong>Pflanzenöl</strong> (Raps/Erdnuss)<br><strong>Kräuterseitlinge & Shimeji</strong></td>
-                <td style="padding: 8px;">14 g<br>120 g</td>
-                <td style="padding: 8px; color: var(--accent-copper);">6,2 %<br>53,3 %</td>
-                <td style="padding: 8px; vertical-align: top;">③ Wok stark erhitzen, Öl zugeben. Kräuterseitlinge und Shimeji 3–4 Min. scharf anbraten.</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--border-color);">
-                <td style="padding: 8px;"><strong>Enoki-Pilze</strong><br><strong>Salz & Helle Sojasauce</strong></td>
-                <td style="padding: 8px;">30 g<br>n.B.</td>
-                <td style="padding: 8px; color: var(--accent-copper);">13,3 %<br>-</td>
-                <td style="padding: 8px; vertical-align: top;">④ In der letzten Minute zugeben. Mit Salz und wenigen Tropfen Sojasauce würzen, beiseitestellen.</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--border-color);">
-                <td style="padding: 8px;"><strong>Wasser</strong> (leicht gesalzen)</td>
-                <td style="padding: 8px;">n.B.</td>
-                <td style="padding: 8px; color: var(--accent-copper);">-</td>
-                <td style="padding: 8px; vertical-align: top;">⑤ Wasser zum Kochen bringen. Vor dem Nudelkochen 4–5 EL kochendes Wasser zur Sesamsauce (①) geben und kräftig zu einer cremigen Emulsion rühren.</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--border-color);">
-                <td style="padding: 8px;"><strong>Alkalische Weizennudeln</strong></td>
-                <td style="padding: 8px;">225 g</td>
-                <td style="padding: 8px; color: var(--accent-copper);">100 %</td>
-                <td style="padding: 8px; vertical-align: top;">⑥ Nudeln nach Packung ca. 2 Min. bissfest garen. Abgießen.</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px;"><strong>Frühlingszwiebeln</strong> (Ringe)</td>
-                <td style="padding: 8px;">15 g</td>
-                <td style="padding: 8px; color: var(--accent-copper);">6,7 %</td>
-                <td style="padding: 8px; vertical-align: top;">⑦ Heiße Nudeln auf die Chili-Öl-Basis (②) geben. Mit Sesamsauce (⑤), Pilzen (④) und Lauchzwiebeln toppen. Sofort in der Schüssel mischen.</td>
-            </tr>
-        </tbody>
-    </table>
-    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">* (% des Gesamtgewichts der Hauptzutat: Nudeln)</p>
-</div>
+                        <h3>1.1 Shanghai-Style Sesame Noodles</h3>
+                        <div class="recipe-meta">Portionen: 2 | Aktive Zeit: ca. 15 Min.</div>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Knoblauch</strong> (gehackt)<br><strong>Sesampaste</strong><br><strong>Erdnussbutter</strong><br><strong>Zucker</strong><br><strong>Soja hell</strong><br><strong>Reisessig</strong></td>
+                                    <td>4 g<br>30 g<br>30 g<br>4 g<br>15 g<br>10 g</td>
+                                    <td>1,8 %<br>13,3 %<br>13,3 %<br>1,8 %<br>6,7 %<br>4,4 %</td>
+                                    <td>① In einer Schüssel mit einer Gabel verrühren (Masse ist zunächst sehr fest).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Chili-Öl</strong><br><strong>Soja hell</strong><br><strong>Marmite</strong> (optional)</td>
+                                    <td>55 g<br>15 g<br>3 g</td>
+                                    <td>24,4 %<br>6,7 %<br>1,3 %</td>
+                                    <td>② Verrühren, bis Marmite gelöst. Auf Servierschüsseln verteilen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pflanzenöl</strong><br><strong>Kräuterseitlinge & Shimeji</strong></td>
+                                    <td>14 g<br>120 g</td>
+                                    <td>6,2 %<br>53,3 %</td>
+                                    <td>③ Wok stark erhitzen, Öl zugeben. Pilze 3–4 Min. scharf anbraten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Enoki-Pilze</strong><br><strong>Salz & Soja hell</strong></td>
+                                    <td>30 g<br>n.B.</td>
+                                    <td>13,3 %<br>-</td>
+                                    <td>④ In der letzten Minute zugeben. Mit Salz und Tropfen Sojasauce würzen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nudelkochwasser</strong> (kochend)</td>
+                                    <td>60 g</td>
+                                    <td>26,6 %</td>
+                                    <td>⑤ Wasser zur Sesamsauce (①) geben und zu cremiger Emulsion rühren.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Jianshui-Nudeln</strong></td>
+                                    <td>225 g</td>
+                                    <td>100 %</td>
+                                    <td>⑥ Bissfest garen (ca. 2 Min), abgießen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frühlingszwiebeln</strong></td>
+                                    <td>15 g</td>
+                                    <td>6,7 %</td>
+                                    <td>⑦ Nudeln auf Chili-Öl (②) geben. Mit Sesamsauce, Pilzen und Lauchzwiebeln toppen. Mischen.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:10px;">* (% des Gesamtgewichts: Nudeln)</p>
+                    </div>
 
                     <div class="recipe-card" id="r-1-2">
-                        <h3>1.2 Pad Krapao Neua (Thailändisches Rinderhackfleisch mit Basilikum – Ohne Fischsauce)</h3>
-                        <div class="recipe-meta">Portionen: 2 bis 3</div>
-                        
-                        <h4>Zutaten</h4>
-                        <ul>
-                            <li>400 g Rinderhackfleisch</li>
-                            <li>4 bis 5 Knoblauchzehen, grob gehackt oder im Mörser zerstoßen</li>
-                            <li>2 bis 6 Thai-Chilis (nach gewünschter Schärfe), im Mörser mit Knoblauch zerstoßen</li>
-                            <li>1 bis 2 große Hände voll Thai-Basilikum oder Heiliges Basilikum (Krapao), Blätter abgezupft</li>
-                            <li>1 EL (15 ml / 14 g) neutrales Öl zum Anbraten</li>
-                        </ul>
-                        <p><strong>Für die Würzsauce:</strong></p>
-                        <ul>
-                            <li>2 EL (30 ml / 33 g) Mushroom Sauce (vegetarische Austern-/Pilzsauce)</li>
-                            <li>1,5 EL (22,5 ml / 22 g) helle Sojasauce</li>
-                            <li>1 TL (5 ml / 6 g) dunkle Sojasauce</li>
-                            <li>1 TL (4 g) Zucker (oder Palmzucker)</li>
-                            <li>2 EL (30 ml / 30 g) Wasser oder Brühe</li>
-                        </ul>
-
-                        <h4>Zubereitung</h4>
-                        <ol>
-                            <li>Würzsauce aus Mushroom Sauce, Sojasaucen, Zucker und Wasser anrühren.</li>
-                            <li>Wok stark erhitzen, Öl zugeben und die Knoblauch-Chili-Paste 20–30 Sekunden anbraten.</li>
-                            <li>Rinderhackfleisch zugeben, flach verteilen, kurz anbräunen lassen und bei voller Leistung krümelig braten.</li>
-                            <li>Würzsauce angiessen, 1 Minute einkochen lassen.</li>
-                            <li>Hitze ausschalten, Thai-Basilikum unterheben bis es zusammenfällt. Mit Duftreis servieren.</li>
-                        </ol>
+                        <h3>1.2 Pad Krapao Neua</h3>
+                        <div class="recipe-meta">Portionen: 2-3 | Aktive Zeit: ca. 10 Min.</div>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Mushroom Sauce</strong><br><strong>Soja hell</strong><br><strong>Soja dunkel</strong><br><strong>Zucker</strong><br><strong>Wasser</strong></td>
+                                    <td>33 g<br>22 g<br>6 g<br>4 g<br>30 g</td>
+                                    <td>8,3 %<br>5,5 %<br>1,5 %<br>1,0 %<br>7,5 %</td>
+                                    <td>① In kleiner Schüssel glatt rühren.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Knoblauchzehen</strong><br><strong>Thai-Chilis</strong><br><strong>Pflanzenöl</strong></td>
+                                    <td>15 g<br>8 g<br>14 g</td>
+                                    <td>3,8 %<br>2,0 %<br>3,5 %</td>
+                                    <td>② Knoblauch und Chilis zerstoßen. Wok erhitzen, Paste 20 Sek. anrösten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rinderhackfleisch</strong></td>
+                                    <td>400 g</td>
+                                    <td>100 %</td>
+                                    <td>③ Zugeben, flach verteilen, anbräunen, dann krümelig braten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Würzsauce</strong></td>
+                                    <td>v. o.</td>
+                                    <td>-</td>
+                                    <td>④ Über das Fleisch geben, 1 Min. einkochen lassen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Thai-Basilikum</strong></td>
+                                    <td>20 g</td>
+                                    <td>5,0 %</td>
+                                    <td>⑤ Hitze aus. Basilikum 10 Sek. unterheben. Servieren.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:10px;">* (% des Gesamtgewichts: Hackfleisch)</p>
                     </div>
 
                     <div class="recipe-card" id="r-1-3">
-                        <h3>1.3 Dan Dan Nudeln (Sichuan-Style mit Rinderhackfleisch)</h3>
-                        <div class="recipe-meta">Portionen: 2 bis 3</div>
-                        <h4>Zutaten & Zubereitung</h4>
-                        <p>Würzige Nudeln in einer pikanten Sauce aus 2 EL chinesischer Sesampaste, 3 EL heller Sojasauce, 1 EL schwarzer Chinkiang-Reisessig, 3–4 EL Chili-Öl, 1 TL gemahlenem Sichuan-Pfeffer, 1 TL Zucker und 1 Knoblauchzehe. Getoppt mit scharf angebratenem Rinderhack (250 g), 50 g Ya Cai (Sichuan-Senfgemüse), Ingwer, Shaoxing-Reiswein und Pak Choi.</p>
+                        <h3>1.3 Dan Dan Nudeln (Sichuan-Style)</h3>
+                        <div class="recipe-meta">Portionen: 2-3</div>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Rinderhackfleisch</strong><br><strong>Pflanzenöl</strong></td>
+                                    <td>250 g<br>14 g</td>
+                                    <td>62,5 %<br>3,5 %</td>
+                                    <td>① Im heißen Wok krümelig und kräftig braun anbraten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Knoblauch & Ingwer</strong> (gehackt)<br><strong>Ya Cai</strong> (Senfgemüse)</td>
+                                    <td>10 g<br>50 g</td>
+                                    <td>2,5 %<br>12,5 %</td>
+                                    <td>② Zugeben und 1 Minute mitbraten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Shaoxing-Reiswein</strong><br><strong>Süße Bohnenpaste</strong><br><strong>Soja dunkel</strong></td>
+                                    <td>15 g<br>15 g<br>5 g</td>
+                                    <td>3,8 %<br>3,8 %<br>1,3 %</td>
+                                    <td>③ Mit Reiswein ablöschen, Pasten einrühren. Fleisch (Saozi) beiseitestellen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sesampaste</strong><br><strong>Soja hell</strong><br><strong>Reisessig</strong><br><strong>Chili-Öl</strong><br><strong>Sichuan-Pfeffer</strong><br><strong>Zucker</strong><br><strong>Knoblauch</strong> (gerieben)</td>
+                                    <td>30 g<br>45 g<br>15 g<br>60 g<br>3 g<br>4 g<br>4 g</td>
+                                    <td>7,5 %<br>11,3 %<br>3,8 %<br>15,0 %<br>0,8 %<br>1,0 %<br>1,0 %</td>
+                                    <td>④ In einer Schüssel zur Würzbasis verrühren.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nudelkochwasser</strong> (heiß)</td>
+                                    <td>60 g</td>
+                                    <td>15,0 %</td>
+                                    <td>⑤ Zur Basis geben, emulgieren und auf Schüsseln verteilen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frische Weizennudeln</strong><br><strong>Pak Choi</strong> (halbiert)</td>
+                                    <td>400 g<br>100 g</td>
+                                    <td>100 %<br>25,0 %</td>
+                                    <td>⑥ Nudeln garen, Pak Choi in der letzten Minute mitkochen. Abgießen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frühlingszwiebeln</strong></td>
+                                    <td>15 g</td>
+                                    <td>3,8 %</td>
+                                    <td>⑦ Nudeln auf Sauce geben, mit Fleisch (③) und Zwiebeln toppen.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:10px;">* (% des Gesamtgewichts: Nudeln)</p>
                     </div>
-
+                    
                     <div class="recipe-card" id="r-1-4">
-                        <h3>1.4 Mapo Tofu (mit Rinderhackfleisch)</h3>
-                        <div class="recipe-meta">Portionen: 2 bis 3</div>
-                        <h4>Zutaten & Zubereitung</h4>
-                        <p>400 g Tofu (gewürfelt und kurz in Salzwasser gezogen), 150–200 g Rinderhackfleisch, 1,5–2 EL Pixian Doubanjiang (Chilibohnenpaste), 1 EL Douchi (schwarze Bohnen), Knoblauch, Ingwer, 200 ml (200 g) Brühe, Sojasauce, Zucker, 1,5 TL frischer Sichuan-Pfeffer und Stärkelösung (1,5 EL Stärke in 45 ml / 45 g Wasser) zum Abbinden.</p>
+                        <h3>1.4 Mapo Tofu</h3>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Rinderhackfleisch</strong></td>
+                                    <td>200 g</td>
+                                    <td>50,0 %</td>
+                                    <td>① Im heißen Wok kräftig krümelig anbraten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Doubanjiang</strong><br><strong>Douchi</strong> (schwarze Bohnen)</td>
+                                    <td>30 g<br>15 g</td>
+                                    <td>7,5 %<br>3,8 %</td>
+                                    <td>② Zugeben und rühren, bis sich das Öl tiefrot färbt.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Knoblauch & Ingwer</strong></td>
+                                    <td>15 g</td>
+                                    <td>3,8 %</td>
+                                    <td>③ Zugeben und 30 Sekunden mitdünsten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Hühnerbrühe</strong><br><strong>Soja hell</strong><br><strong>Zucker</strong></td>
+                                    <td>200 g<br>15 g<br>4 g</td>
+                                    <td>50,0 %<br>3,8 %<br>1,0 %</td>
+                                    <td>④ Ablöschen und einrühren.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tofu</strong> (gewürfelt, vorab gewässert)</td>
+                                    <td>400 g</td>
+                                    <td>100 %</td>
+                                    <td>⑤ Hineingleiten lassen. 3-4 Min. sanft köcheln (nicht rühren!).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Speisestärke</strong><br><strong>Wasser</strong></td>
+                                    <td>15 g<br>45 g</td>
+                                    <td>3,8 %<br>11,3 %</td>
+                                    <td>⑥ Glatt rühren, schrittweise zugeben bis Sauce sämig bindet.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sichuan-Pfeffer</strong><br><strong>Frühlingszwiebeln</strong></td>
+                                    <td>4 g<br>15 g</td>
+                                    <td>1,0 %<br>3,8 %</td>
+                                    <td>⑦ Anrichten, bestreuen und sofort servieren.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
+                    
                     <div class="recipe-card" id="r-1-5">
-                        <h3>1.5 Sichuan-Style grüne Bohnen (Gan Bian Si Ji Dou)</h3>
-                        <div class="recipe-meta">Portionen: 2 bis 3</div>
-                        <h4>Zutaten & Zubereitung</h4>
-                        <p>400 g frische Buschbohnen getrocknet im Wok mit 2 EL (30 ml / 27 g) Öl angeröstet (Dry-Frying), bis sie Blasen werfen. Separat Rinderhack (150 g), getrocknete Chilis, Sichuan-Pfeffer, Knoblauch, Ingwer und Ya Cai anbraten, Bohnen dazugeben und mit Shaoxing-Reiswein und Sojasauce ablöschen.</p>
+                        <h3>1.5 Sichuan-Style Grüne Bohnen (Gan Bian Si Ji Dou)</h3>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Pflanzenöl</strong></td>
+                                    <td>27 g</td>
+                                    <td>6,8 %</td>
+                                    <td>① Wok stark erhitzen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Grüne Bohnen</strong></td>
+                                    <td>400 g</td>
+                                    <td>100 %</td>
+                                    <td>② Bohnen 5-7 Min. trocken braten (Blasenbildung). Herausnehmen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sichuan-Pfeffer</strong><br><strong>Chilis</strong> (getrocknet)</td>
+                                    <td>3 g<br>5 g</td>
+                                    <td>0,8 %<br>1,3 %</td>
+                                    <td>③ Im Wok kurz anrösten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rinderhackfleisch</strong></td>
+                                    <td>150 g</td>
+                                    <td>37,5 %</td>
+                                    <td>④ Zugeben, scharf und krümelig braten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Knoblauch & Ingwer</strong><br><strong>Ya Cai</strong> (Senfgemüse)</td>
+                                    <td>15 g<br>30 g</td>
+                                    <td>3,8 %<br>7,5 %</td>
+                                    <td>⑤ Zugeben und 1 Minute mitbraten. Bohnen wieder in Wok geben.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Shaoxing-Reiswein</strong><br><strong>Soja hell</strong><br><strong>Zucker</strong></td>
+                                    <td>15 g<br>22 g<br>2 g</td>
+                                    <td>3,8 %<br>5,5 %<br>0,5 %</td>
+                                    <td>⑥ Ablöschen, 1 Minute stark schwenken.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sesamöl</strong></td>
+                                    <td>3 g</td>
+                                    <td>0,8 %</td>
+                                    <td>⑦ Abrunden und servieren.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="recipe-card" id="r-1-8">
+                        <h3>1.8 Dry-fried Aale aus Shiitake (Vegetarisch)</h3>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Shiitake-Pilze</strong> (eingeweicht)</td>
+                                    <td>250 g</td>
+                                    <td>100 %</td>
+                                    <td>① Wasser auspressen, in 1,5 cm breite Streifen schneiden.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kartoffelstärke</strong></td>
+                                    <td>75 g</td>
+                                    <td>30,0 %</td>
+                                    <td>② Pilze darin wälzen bis sie gleichmäßig ummantelt sind.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frittieröl</strong></td>
+                                    <td>n.B.</td>
+                                    <td>-</td>
+                                    <td>③ Auf 190 °C erhitzen. Pilze portionsweise 1 Min. knusprig frittieren.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sichuan-Pfeffer</strong><br><strong>Chilis</strong> (getrocknet)</td>
+                                    <td>3 g<br>5 g</td>
+                                    <td>1,2 %<br>2,0 %</td>
+                                    <td>④ Wok bis auf 3 EL Öl leeren. Pfeffer und Chilis kurz rösten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Doubanjiang</strong></td>
+                                    <td>22 g</td>
+                                    <td>8,8 %</td>
+                                    <td>⑤ Einrühren bis Öl tiefrot wird.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Knoblauch & Ingwer</strong><br><strong>Grüne Paprika</strong></td>
+                                    <td>24 g<br>175 g</td>
+                                    <td>9,6 %<br>70,0 %</td>
+                                    <td>⑥ Zugeben und anbraten. Frittierte Pilze untermischen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Stärke</strong><br><strong>Zucker</strong><br><strong>Soja hell</strong><br><strong>Soja dunkel</strong><br><strong>Wasser</strong></td>
+                                    <td>2 g<br>2 g<br>5 g<br>2 g<br>60 g</td>
+                                    <td>0,8 %<br>0,8 %<br>2,0 %<br>0,8 %<br>24,0 %</td>
+                                    <td>⑦ Vorab verrühren, in den Wok gießen. Eindicken und Pilze glasieren.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <div class="recipe-card" id="r-1-6">
-                        <h3>1.6 Yaki Udon mit Shiitake, Pak Choi und Rinderhack</h3>
-                        <div class="recipe-meta">Portionen: 2 bis 3</div>
-                        <h4>Zutaten & Zubereitung</h4>
-                        <p>Vakuum-Udon-Nudeln (400–600 g) in heißem Wasser lösen. Rinderhack (200 g) und Shiitake-Pilze (150 g) im heißen Wok anbraten, Pak Choi und Knoblauch hinzufügen. Mit einer Sauce aus je 2 EL dunkler Sojasauce und Mushroom Sauce, 1 EL Mirin, 1 TL Reisessig und 1 TL Zucker kurz scharf anbraten.</p>
-                    </div>
-
-                    <div class="recipe-card" id="r-1-7">
-                        <h3>1.7 Weitere schnelle Wok-Varianten (Kurzübersicht)</h3>
-                        <ul>
-                            <li><strong>Sichuan-Auberginen (Yu Xiang Qie Zi):</strong> Marinierte Auberginenstifte mit Rinderhack, Doubanjiang, Knoblauch, Ingwer und schwarzem Reisessig.</li>
-                            <li><strong>Scharfer Wok-Kohl (Shou Si Bao Cai):</strong> Gerissener Spitzkohl mit Chilis, Sichuan-Pfeffer, Knoblauch und Wok-Aromen.</li>
-                            <li><strong>Larb Neua Khua:</strong> Nordthailändischer warmer Rinderhack-Salat mit Limette, Chiflocken, Minze, Koriander und geröstetem Klebreispulver (Khao Khua).</li>
-                            <li><strong>Bulgogi-Style Rinderhack:</strong> Glasierte Hackfleischpfanne mit Sojasauce, Birnenmark, Sesamöl und braunem Zucker.</li>
-                        </ul>
+                    <div class="recipe-card" id="r-1-9">
+                        <h3>1.9 Egg Fried Rice (Einfacher Wok-Bratreis mit Ei)</h3>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Pflanzenöl</strong></td>
+                                    <td>14 g</td>
+                                    <td>3,5 %</td>
+                                    <td>① Wok stark erhitzen, Öl zugeben.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Eier</strong> (Größe L), verquirlt</td>
+                                    <td>165 g</td>
+                                    <td>41,2 %</td>
+                                    <td>② Sofort kräftig rühren (Scrambled). Saftig herausnehmen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pflanzenöl</strong></td>
+                                    <td>28 g</td>
+                                    <td>7,0 %</td>
+                                    <td>③ Wok auswischen, erneut erhitzen. Öl zugeben.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frühlingszwiebeln</strong> (weiß)<br><strong>Knoblauch</strong>, gehackt</td>
+                                    <td>15 g<br>6 g</td>
+                                    <td>3,7 %<br>1,5 %</td>
+                                    <td>④ Zusammen 15–20 Sekunden scharf anrösten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reis</strong>, durchgekühlt</td>
+                                    <td>400 g</td>
+                                    <td>100 %</td>
+                                    <td>⑤ Bei höchster Hitze 3–4 Min. braten (Dry-Frying).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Helle Sojasauce</strong></td>
+                                    <td>30 g</td>
+                                    <td>7,5 %</td>
+                                    <td>⑥ Am Wokrand karamellisieren, unterrühren. Ei zugeben.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frühlingszwiebeln</strong> (grün)<br><strong>Sesamöl</strong><br><strong>Weißer Pfeffer</strong></td>
+                                    <td>15 g<br>4 g<br>1 g</td>
+                                    <td>3,7 %<br>1,0 %<br>0,2 %</td>
+                                    <td>⑦ Mit Pfeffer, Sesamöl abschmecken. Sofort servieren.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
-
-                <!-- KAPITEL 2 -->
+                
                 <section id="kapitel-2">
                     <h2>Kapitel 2: Gerichte aus dem 10-Liter-Schnellkochtopf</h2>
                     
                     <div class="recipe-card" id="r-2-1">
-                        <h3>2.1 Deftiger Fleisch-Bohneneintopf (Fissler Vitavit 10 L)</h3>
-                        <div class="recipe-meta">Menge: ca. 10 Liter / 10 kg</div>
-                        
-                        <h4>Zutaten</h4>
-                        <ul>
-                            <li><strong>Basis:</strong> 2 kg Bohnen (vorbereitet), 2 kg Fleisch (Gulasch), Speck</li>
-                            <li><strong>Gemüse:</strong> 1,2 kg Kartoffelwürfel (10x10 mm), 1 kg Möhrenscheiben (1 cm), Lauch (weißer und hellgrüner Teil)</li>
-                            <li><strong>Würze:</strong> 1 bis 1,5 TL scharfes Chipotlepulver, 8 bis 10 Lorbeerblätter, Sherry-Essig, Salz, Pfeffer, 1 TL Zucker oder Honig</li>
-                            <li><strong>Finish (Serviertag):</strong> Dunkelgrüne Lauchringe, Schmand oder Crème fraîche</li>
-                        </ul>
-
-                        <h4>Zubereitung</h4>
-                        <ol>
-                            <li><strong>Phase 1 (Druckgaren):</strong> Bohnen, Fleisch und Speck 25 Minuten auf Druckstufe 2 garen.</li>
-                            <li><strong>Phase 2 (Gemüse):</strong> Kartoffeln, Möhren und den hellen Lauch (vorab in Soffritto-Art im Bräter angeröstet) hinzufügen.</li>
-                            <li><strong>Fertiggaren ohne Druck:</strong> Da the Topf nun voll ist, ca. 20 Minuten bei 95–100 °C ohne Druck fertig garen, bis die Kartoffeln weich sind.</li>
-                            <li><strong>Reifen:</strong> Über Nacht im Garten bei ca. 0 °C durchkühlen und durchziehen lassen.</li>
-                            <li><strong>Finish:</strong> Auf 80 °C erwärmen, dunkelgrüne Lauchringe 5 Minuten darin ziehen lassen. Mit Sherry-Essig und Salz abschmecken, mit Schmand servieren.</li>
-                        </ol>
-                        <p><em>Hinweis zur vegetarischen Variante:</em> Gleicher Aufbau mit Gemüsefond statt Fleisch.</p>
-                    </div>
-
-                    <div class="recipe-card" id="r-2-2">
-                        <h3>2.2 Ganze Artischocken aus dem Schnellkochtopf mit Vinaigrette</h3>
-                        <p>Stiel kürzen, Blattspitzen kappen, mit Zitronensaft einreiben. Im Fissler-Schnellkochtopf mit 300–500 ml Wasser, Zitronenhälften, Knoblauch und Lorbeer auf Stufe 2 für 10–15 Minuten dämpfen. Dazu eine Vinaigrette aus Olivenöl, Sherry-Essig, Dijon-Senf und Schalotten servieren.</p>
+                        <h3>2.1 Deftiger Fleisch-Bohneneintopf (10L)</h3>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Bohnen</strong> (vorbereitet)<br><strong>Fleisch</strong> (Gulasch)<br><strong>Speck</strong></td>
+                                    <td>2000 g<br>2000 g<br>250 g</td>
+                                    <td>100 %<br>100 %<br>12,5 %</td>
+                                    <td>① Zusammen 25 Minuten auf Druckstufe 2 garen (Phase 1).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kartoffelwürfel</strong><br><strong>Möhrenscheiben</strong><br><strong>Lauch</strong> (hell, angeröstet)</td>
+                                    <td>1200 g<br>1000 g<br>300 g</td>
+                                    <td>60,0 %<br>50,0 %<br>15,0 %</td>
+                                    <td>② Hinzufügen. Topf ist nun voll. 20 Min. bei 95-100°C drucklos garen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Chipotlepulver</strong><br><strong>Lorbeerblätter</strong></td>
+                                    <td>5 g<br>10 Stk</td>
+                                    <td>0,3 %<br>-</td>
+                                    <td>③ Würzen. Über Nacht bei ca. 0 °C durchkühlen und reifen lassen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Lauchringe</strong> (dunkelgrün)<br><strong>Sherry-Essig</strong><br><strong>Schmand</strong></td>
+                                    <td>200 g<br>30 g<br>200 g</td>
+                                    <td>10,0 %<br>1,5 %<br>10,0 %</td>
+                                    <td>④ Serviertag: Auf 80°C erwärmen, Lauch 5 Min. ziehen lassen. Abschmecken.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <div class="recipe-card" id="r-2-3">
-                        <h3>2.3 Großes Chili con Carne</h3>
-                        <div class="recipe-meta">Großer Vorratsansatz</div>
-                        <h4>Zutaten</h4>
-                        <ul>
-                            <li>1,6 kg Rinderhackfleisch</li>
-                            <li>1,4 kg Kidney-Bohnen, trocken</li>
-                            <li>1 kg gelbe Zwiebeln & 1 kg rote Zwiebeln</li>
-                            <li>14 Knoblauchzehen (ca. 45 g)</li>
-                            <li>3.000 ml (3.000 g) Bratenfond & 6 x 690 g Polpa (tomaten)</li>
-                            <li>Gewürze: 40 g Kakao, 40 g gemahlener Chipotle, 20 g Ancho Chili Flakes, 10 g geräucherter Paprika, 40 g scharfer Paprika, 10 g Cumin, 3 g Oregano, 2 Zimtstangen, 50 g Salz</li>
-                        </ul>
-                    </div>
-
-                    <div class="recipe-card" id="r-2-4">
-                        <h3>2.4 Arrabbiata (Vorratsansatz mit karamellisierten Druck-Zwiebeln)</h3>
-                        <p>2 kg Zwiebeln, 90 g Knoblauch, 35 g Thai-Chilis, 40 g Chipotle, 35 g Salz und Olivenöl im Schnellkochtopf auf Stufe 2 für 3,5 Stunden garen. Anschließend offen 1 Stunde einreduzieren, 9 x 700 g Passata mit Basilikum dazugeben und 20 Minuten köcheln lassen.</p>
+                        <h3>2.3 Großes Chili con Carne (Vorratsansatz)</h3>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Rinderhackfleisch</strong></td>
+                                    <td>1600 g</td>
+                                    <td>100 %</td>
+                                    <td>① In Chargen scharf anbraten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Zwiebeln</strong> (gelb & rot)<br><strong>Knoblauch</strong></td>
+                                    <td>2000 g<br>45 g</td>
+                                    <td>125,0 %<br>2,8 %</td>
+                                    <td>② Zugeben und mitrösten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Chipotle</strong><br><strong>Paprika scharf</strong><br><strong>Kakao</strong><br><strong>Ancho Flakes</strong><br><strong>Paprika geräuchert</strong><br><strong>Cumin</strong></td>
+                                    <td>40 g<br>40 g<br>40 g<br>20 g<br>10 g<br>10 g</td>
+                                    <td>2,5 %<br>2,5 %<br>2,5 %<br>1,3 %<br>0,6 %<br>0,6 %</td>
+                                    <td>③ Gewürze kurz mitrösten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kidney-Bohnen</strong><br><strong>Bratenfond</strong><br><strong>Polpa</strong> (Tomaten)<br><strong>Salz</strong></td>
+                                    <td>1400 g<br>3000 g<br>4140 g<br>50 g</td>
+                                    <td>87,5 %<br>187,5 %<br>258,8 %<br>3,1 %</td>
+                                    <td>④ Alles in den Schnellkochtopf füllen. Unter Druck garen.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
-
-                <!-- KAPITEL 3 -->
+                
                 <section id="kapitel-3">
                     <h2>Kapitel 3: Klassiker und Grundrezepte</h2>
                     <div class="recipe-card" id="r-3-1">
-                        <h3>3.1 Pesto-Rezepte (Zwei Hausvarianten)</h3>
-                        <ul>
-                            <li><strong>Pesto (Gesche):</strong> 2 Bund Basilikum, 1 Knoblauchzehe, 30 g gehackte Mandeln, 60 g Parmesan, 230 g (250 ml) Olivenöl.</li>
-                            <li><strong>Pesto (Georg – Groß):</strong> 300 g Basilikum, 400 g Parmesan, 300 g geröstete Pinienkerne, 5 Knoblauchzehen (ca. 15 g), 600 g (650 ml) Olivenöl, 15 g Salz, 3 g Pfeffer.</li>
-                        </ul>
+                        <h3>3.1 Pesto (Großer Hausansatz)</h3>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Olivenöl</strong></td>
+                                    <td>600 g</td>
+                                    <td>100 %</td>
+                                    <td>① Als Basis-Flüssigkeit bereitstellen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Parmesan</strong><br><strong>Pinienkerne</strong> (geröstet)<br><strong>Basilikum</strong></td>
+                                    <td>400 g<br>300 g<br>300 g</td>
+                                    <td>66,7 %<br>50,0 %<br>50,0 %</td>
+                                    <td>② Zusammen mit etwas Öl im Mixer oder Mörser zerkleinern.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Knoblauch</strong><br><strong>Salz</strong><br><strong>Pfeffer</strong></td>
+                                    <td>15 g<br>15 g<br>3 g</td>
+                                    <td>2,5 %<br>2,5 %<br>0,5 %</td>
+                                    <td>③ Fein abschmecken. In sterilisierte Gläser abfüllen, mit Öl bedecken.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                    
                     <div class="recipe-card" id="r-3-2">
                         <h3>3.2 Curry-Ketchup für Pommes Frites</h3>
-                        <ul>
-                            <li><strong>Basis (1.710 g):</strong> 1.350 g Ketchup, 300 g Crème fraîche, 30 g Currypulver, 30 g geräucherter Paprika.</li>
-                            <li><strong>Scharfe Variante:</strong> 1.000 g Basis, 23 g scharfer Paprika, 26 g Chipotlepulver, 1,4 g Painmaker BBQ Würzsauce Hardcore.</li>
-                        </ul>
-                    </div>
-                    <div class="recipe-card" id="r-3-3">
-                        <h3>3.3 Klassische Semmelknödel & Pilzrahmsauce</h3>
-                        <p>Referenzrezepte nach <a href="https://emmikochteinfach.de/klassische-semmelknoedel/" class="external-link" target="_blank">Emmi kocht einfach – Semmelknödel</a> und <a href="https://emmikochteinfach.de/nudeln-mit-pilz-hackbaellchen-in-pilzrahmsosse/" class="external-link" target="_blank">Pilzrahmsauce</a>.</p>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Ketchup</strong></td>
+                                    <td>1350 g</td>
+                                    <td>100 %</td>
+                                    <td>① In eine große Schüssel geben.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Crème fraîche</strong><br><strong>Currypulver</strong><br><strong>Paprikapulver</strong> (geräuchert)</td>
+                                    <td>300 g<br>30 g<br>30 g</td>
+                                    <td>22,2 %<br>2,2 %<br>2,2 %</td>
+                                    <td>② Zur glatten Basis-Mischung verrühren.</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="background: rgba(0,0,0,0.2); padding: 4px 8px;"><strong>Für die scharfe Variante (auf 1000g Basis):</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Basis-Mischung</strong><br><strong>Chipotlepulver</strong><br><strong>Paprikapulver</strong> (scharf)<br><strong>Painmaker BBQ</strong></td>
+                                    <td>1000 g<br>26 g<br>23 g<br>1,4 g</td>
+                                    <td>100 %<br>2,6 %<br>2,3 %<br>0,14 %</td>
+                                    <td>③ Verrühren und im Kühlschrank ziehen lassen.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
-
-                <!-- KAPITEL 4 -->
-                <section id="kapitel-4">
-                    <h2>Kapitel 4: Fermentation und Grundzubereitungen</h2>
-                    <div class="recipe-card" id="r-4-1">
-                        <h3>4.1 Hausgemachter Naturjoghurt (Schrozberger Starterkultur)</h3>
-                        <p>1 Liter (1.030 g) Demeter-Vollmilch in der Kenwood Cooking Chef auf 85–90 °C erhitzen (5–10 Min. halten), auf 38–39 °C abkühlen. 2–3 EL Schrozberger Joghurt unterheben. Im Gaggenau EB 333 bei exakt 38 °C für 12–14 Stunden reifen lassen, danach 4–6 Std. kühlen.</p>
-                    </div>
-                    <div class="recipe-card" id="r-4-2">
-                        <h3>4.2 Lakto-fermentierte Chilisauce</h3>
-                        <p>Chilis aus eigenem Anbau mit Knoblauch in ein Glas schichten. Mit 3%iger Salzlake (30 g unjodiertes Salz auf 1.000 g Wasser) übergießen und 10–21 Tage bei Raumtemperatur fermentieren. Danach mit etwas Lake fein pürieren.</p>
-                    </div>
-                    <div class="recipe-card" id="r-4-3">
-                        <h3>4.3 Quitten-Passionsfrucht-Gelee (17.11.2023)</h3>
-                        <p>250 g Ponthier Passionsfrucht-Püree, 750 g Quittensaft (730 ml) und 900 g Zucker im Kenwood Cooking Chef präzise auf 104 °C erhitzen (vgl. <a href="https://felixkitchen.com/2018/11/05/quitten-gelee/" class="external-link" target="_blank">Felix Kitchen</a>) und heiß abfüllen.</p>
-                    </div>
-                </section>
-
-                <!-- KAPITEL 5 -->
+                
                 <section id="kapitel-5">
-                    <h2>Kapitel 5: Backen, Quiches und Ofengerichte</h2>
-                    
+                    <h2>Kapitel 5: Backen und Teige</h2>
                     <div class="recipe-card" id="r-5-1">
-                        <h3>5.1 Brot, Baguette, Pizza und Feingebäck</h3>
+                        <h3>5.1 Baguettes nach Anis Bouabsa (55 Std.)</h3>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="4" style="background: rgba(0,0,0,0.2); padding: 4px 8px;"><strong>Vorteig (Poolish):</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Weizenmehl Typ 550</strong><br><strong>Wasser</strong><br><strong>Frischhefe</strong></td>
+                                    <td>160 g<br>160 g<br>0,3 g</td>
+                                    <td>31,4 %<br>31,4 %<br>0,06 %</td>
+                                    <td>① Mischen, 16–20 Stunden bei 18-20°C reifen lassen.</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="background: rgba(0,0,0,0.2); padding: 4px 8px;"><strong>Hauptteig (Gesamtmehl 510g = 100%):</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Vorteig (Poolish)</strong><br><strong>Weizenmehl Typ 550</strong><br><strong>Wasser</strong></td>
+                                    <td>320 g<br>350 g<br>165 g</td>
+                                    <td>62,7 %<br>68,6 %<br>32,4 %</td>
+                                    <td>② Autolyse: Verrühren und 30 Min. abgedeckt ruhen lassen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frischhefe</strong><br><strong>Wasser</strong> (Rest)<br><strong>Salz</strong></td>
+                                    <td>3 g<br>50 g<br>10 g</td>
+                                    <td>0,59 %<br>9,8 %<br>1,96 %</td>
+                                    <td>③ Hefe zugeben. Salz in Restwasser lösen und portionsweise (Bassinage) einkneten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reife und Backen</strong></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>④ 1 Std. Stockgare (3x falten). 31 Std. Kühlschrank (4°C). Zu Baguettes formen. 250°C Dampf.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         
-                        <h4>Baguettes nach Anis Bouabsa <span class="baker-pct">(Gesamtmehl 510 g = 100%)</span></h4>
-                        <p><span class="badge">Poolish</span> 160 g Weizenmehl 550 (<span class="baker-pct">31,4%</span>), 160 g Wasser / 160 ml (<span class="baker-pct">31,4%</span>), 0,3 g Frischhefe (<span class="baker-pct">0,06%</span>) – 16–20 Std. reifen.</p>
-                        <p><span class="badge">Hauptteig</span> 350 g Mehl (<span class="baker-pct">68,6%</span>), 215 g Wasser / 215 ml (<span class="baker-pct">42,2%</span>; Hydration gesamt ~74%), 3 g Frischhefe (<span class="baker-pct">0,59%</span>), 10 g Salz (<span class="baker-pct">1,96%</span>). 31 Std. Kühlschrankgare, bei 250 °C mit Dampf backen.</p>
-
-                        <h4>Neapolitanischer Pizzateig nach Vito Iacopelli <span class="baker-pct">(Mehl 1.500 g = 100%)</span></h4>
-                        <p>1.500 g Tipo 00 (<span class="baker-pct">100%</span>), 1.000 g kaltes Wasser / 1.000 ml (<span class="baker-pct">66,7%</span>), 10 g Frischhefe (<span class="baker-pct">0,67%</span>), 40 g Salz (<span class="baker-pct">2,67%</span>), 50 g Olivenöl / 55 ml (<span class="baker-pct">3,33%</span>).</p>
-
-                        <h4>Pizzateig aus 100% Biga nach Dietmar Kappl <span class="baker-pct">(Mehl 1.000 g = 100%)</span></h4>
-                        <p><span class="badge">Biga</span> 1.000 g Tipo 0 (<span class="baker-pct">100%</span>), 470 g Wasser 4°C / 470 ml (<span class="baker-pct">47%</span>), 0,2 g Frischhefe (<span class="baker-pct">0,02%</span>) – 12–15 Std. reifen.</p>
-                        <p><span class="badge">Hauptteig</span> Ganzer Biga, 300 g Eiswasser / 300 ml (<span class="baker-pct">30%</span>, per Bassinage schluckweise einkneten), 22 g Salz (<span class="baker-pct">2,2%</span>), 10 g Flüssigmalz/Honig (<span class="baker-pct">1%</span>), 1 g Frischhefe (<span class="baker-pct">0,1%</span>). Gesamt-Hydration 77%.</p>
-                    </div>
-
-                    <div class="recipe-card" id="r-5-2">
-                        <h3>5.2 Quiches und Herzhafte Tartes</h3>
-                        <ul>
-                            <li><strong>Tomaten-Oliven-Tarte (glutenfrei):</strong> Naturreis-Boden (190 g gekochter Reis, 2 Eier, Salz, Pfeffer, Curry), Tomaten, Oliven, Feta-Eier-Guss.</li>
-                            <li><strong>Aprikosen-Lauch-Quiche:</strong> Mürbeteig (200 g Mehl, 140 g Butter, 1 EL Schmand), Aprikosen, Lauch, Pinienkerne und Blauschimmelkäse-Guss.</li>
-                            <li><strong>Kürbis-Pie:</strong> Hokkaido-Kürbis (1 kg, mit Portwein gedünstet), Kapern, Kürbiskerne und Edelpilzkäse.</li>
-                            <li><strong>Vier-Käse-Quiche mit Spinat:</strong> Mürbeteig, Blattspinat, Sahne-Milch-Eier-Guss, getoppt mit Edelpilzkäse, Limburger, Mozzarella und Emmentaler.</li>
-                        </ul>
-                    </div>
-
-                    <div class="recipe-card" id="r-5-3">
-                        <h3>5.3 Klassische Ofengerichte & Saucen</h3>
-                        <ul>
-                            <li><strong>Überbackener Chicorée (Eckart Witzigmann):</strong> Gedämpfter Chicorée im Prager Schinkenmantel, gratiniert mit Béchamel, Crème fraîche und Gruyère bei 200 °C.</li>
-                            <li><strong>Überbackene Festtagssuppe:</strong> Französische Zwiebelsuppe mit karamellisierten Zwiebeln, Weißwein, Brot und einer Roquefort-Camembert-Cognac-Käsehaube überbacken.</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- KAPITEL 6 -->
-                <section id="kapitel-6">
-                    <h2>Kapitel 6: Technik- und Equipment-Notizen</h2>
-                    <div class="recipe-card">
-                        <h3>Messer & Wok-Setup</h3>
-                        <p><strong>Messer:</strong> Handgeschmiedetes Tadafusa Santoku (Hitachi SLD-Kernlage, 60–62 HRC). Schleifwinkel: 15° pro Seite (30° Gesamtwinkel), ausschließlich auf dem Bankstein oder Rollschleifer abziehen.</p>
-                        <p><strong>Wok-Setup:</strong> 35-cm-Karbonstahl-Wok mit rundem Boden für die Induktions-Wokmulde. Vor Erstbenutzung Werksschutz mit Edelstahlschwamm entfernen, blanken Stahl bläuen und mit hoch erhitzbarem Öl einbrennen. Fleisch und Pilze immer in Portionen (max. 200–250 g) anbraten, um Temperaturabfall zu verhindern.</p>
+                        <h3 style="margin-top:2rem;">5.2 Pizzateig aus 100% Biga (Dietmar Kappl)</h3>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="4" style="background: rgba(0,0,0,0.2); padding: 4px 8px;"><strong>Biga-Vorteig:</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pizzamehl Tipo 0</strong><br><strong>Wasser</strong> (4 °C kalt)<br><strong>Frischhefe</strong></td>
+                                    <td>1000 g<br>470 g<br>0,2 g</td>
+                                    <td>100 %<br>47,0 %<br>0,02 %</td>
+                                    <td>① Hefe in Kaltwasser lösen. Mehl krümelig mischen. 12-15 Std bei 15-18°C reifen.</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="background: rgba(0,0,0,0.2); padding: 4px 8px;"><strong>Hauptteig:</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reifer Biga-Vorteig</strong><br><strong>Eiswasser</strong> (1 °C)</td>
+                                    <td>1470 g<br>300 g</td>
+                                    <td>147 %<br>30,0 %</td>
+                                    <td>② Bassinage: Eiswasser extrem langsam schluckweise in Biga kneten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Salz</strong><br><strong>Flüssigmalz / Honig</strong><br><strong>Frischhefe</strong></td>
+                                    <td>22 g<br>10 g<br>1 g</td>
+                                    <td>2,2 %<br>1,0 %<br>0,1 %</td>
+                                    <td>③ Erst beim allerletzten Schluck Wasser zugeben. Glatt kneten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reife und Backen</strong></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>④ 90 Min Stockgare. 12 Std Kühlschrank. Schleifen. Backen bei >270°C.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
             </main>
         </div>
-
-        <footer>
-            Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung & Hardware-Konfiguration
-        </footer>
+        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout)</footer>
     </div>
-
 </body>
 </html>
