@@ -50,7 +50,6 @@
         .recipe-card:hover { border-color: var(--accent-copper); }
         .recipe-meta { font-size: 0.9rem; color: var(--accent-copper); margin-bottom: 1rem; font-style: italic; }
         
-        /* Modernist Cuisine Table Styles */
         table.modernist { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
         table.modernist th { padding: 8px; color: var(--accent-gold); border-bottom: 2px solid var(--border-color); text-align: left; }
         table.modernist td { padding: 8px; border-bottom: 1px solid var(--border-color); vertical-align: top; }
@@ -72,7 +71,7 @@
             transition: all 0.2s ease;
         }
         .base-input { width: 70px; }
-        .portion-input { width: 50px; text-align: center; }
+        .portion-input { width: 50px; text-align: center; font-weight: bold; }
         
         .base-input:focus, .portion-input:focus {
             outline: none;
@@ -662,4 +661,155 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Weizenmehl Typ 550</strong><br><strong>Wasser</strong><br><strong>Frischhefe</strong></td>
-                                    <td><input type="number" class="base-input" data-base-percent="31.4" data-original-val="160" value="160"> g<br><span class="calc-
+                                    <td><input type="number" class="base-input" data-base-percent="31.4" data-original-val="160" value="160"> g<br><span class="calc-val" data-percent="31.4">160 g</span><br><span class="calc-val" data-percent="0.06">0.3 g</span></td>
+                                    <td>31,4 %<br>31,4 %<br>0,06 %</td>
+                                    <td>① Mischen, 16–20 Stunden bei 18-20°C reifen lassen.</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="background: rgba(0,0,0,0.2); padding: 4px 8px;"><strong>Hauptteig (Gesamtmehl 510g = 100%):</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Vorteig (Poolish)</strong><br><strong>Weizenmehl Typ 550</strong><br><strong>Wasser</strong></td>
+                                    <td><span class="calc-val" data-percent="62.7">320 g</span><br><span class="calc-val" data-percent="68.6">350 g</span><br><span class="calc-val" data-percent="32.4">165 g</span></td>
+                                    <td>62,7 %<br>68,6 %<br>32,4 %</td>
+                                    <td>② Autolyse: Verrühren und 30 Min. abgedeckt ruhen lassen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frischhefe</strong><br><strong>Wasser</strong> (Rest)<br><strong>Salz</strong></td>
+                                    <td><span class="calc-val" data-percent="0.59">3 g</span><br><span class="calc-val" data-percent="9.8">50 g</span><br><span class="calc-val" data-percent="1.96">10 g</span></td>
+                                    <td>0,59 %<br>9,8 %<br>1,96 %</td>
+                                    <td>③ Hefe zugeben. Salz in Restwasser lösen und portionsweise (Bassinage) einkneten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reife und Backen</strong></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>④ 1 Std. Stockgare (3x falten). 31 Std. Kühlschrank (4°C). Zu Baguettes formen. 250°C Dampf.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3 style="margin-top:2rem;">5.2 Pizzateig aus 100% Biga (Dietmar Kappl)</h3>
+                        <div class="recipe-meta">Ergibt: <input type="number" class="portion-input" data-base-portions="6" value="6" step="1"> Teiglinge</div>
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="4" style="background: rgba(0,0,0,0.2); padding: 4px 8px;"><strong>Biga-Vorteig:</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Pizzamehl Tipo 0</strong><br><strong>Wasser</strong> (4 °C kalt)<br><strong>Frischhefe</strong></td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" data-original-val="1000" value="1000"> g<br><span class="calc-val" data-percent="47.0">470 g</span><br><span class="calc-val" data-percent="0.02">0.2 g</span></td>
+                                    <td>100 %<br>47,0 %<br>0,02 %</td>
+                                    <td>① Hefe in Kaltwasser lösen. Mehl krümelig mischen. 12-15 Std bei 15-18°C reifen.</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="background: rgba(0,0,0,0.2); padding: 4px 8px;"><strong>Hauptteig:</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reifer Biga-Vorteig</strong><br><strong>Eiswasser</strong> (1 °C)</td>
+                                    <td><span class="calc-val" data-percent="147.0">1470 g</span><br><span class="calc-val" data-percent="30.0">300 g</span></td>
+                                    <td>147 %<br>30,0 %</td>
+                                    <td>② Bassinage: Eiswasser extrem langsam schluckweise in Biga kneten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Salz</strong><br><strong>Flüssigmalz / Honig</strong><br><strong>Frischhefe</strong></td>
+                                    <td><span class="calc-val" data-percent="2.2">22 g</span><br><span class="calc-val" data-percent="1.0">10 g</span><br><span class="calc-val" data-percent="0.1">1 g</span></td>
+                                    <td>2,2 %<br>1,0 %<br>0,1 %</td>
+                                    <td>③ Erst beim allerletzten Schluck Wasser zugeben. Glatt kneten.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reife und Backen</strong></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>④ 90 Min Stockgare. 12 Std Kühlschrank. Schleifen. Backen bei >270°C.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout) <span style="color:var(--accent-gold);">v2.0</span></footer>
+    </div>
+    
+    <script>
+        document.addEventListener('input', function(e) {
+            const recipeCard = e.target.closest('.recipe-card');
+            if (!recipeCard) return;
+
+            const portionInput = recipeCard.querySelector('.portion-input');
+            const baseInputs = recipeCard.querySelectorAll('.base-input');
+            
+            let ratio = 1;
+
+            // WENN DIE HAUPTZUTAT GEÄNDERT WIRD
+            if (e.target.classList.contains('base-input')) {
+                const originalVal = parseFloat(e.target.getAttribute('data-original-val')) || 1;
+                const currentVal = parseFloat(e.target.value) || 0;
+                ratio = currentVal / originalVal;
+
+                if (portionInput) {
+                    const basePortions = parseFloat(portionInput.getAttribute('data-base-portions')) || 1;
+                    let newPortions = basePortions * ratio;
+                    portionInput.value = Math.round(newPortions * 10) / 10;
+                    portionInput.classList.add('highlight-update');
+                    setTimeout(() => portionInput.classList.remove('highlight-update'), 300);
+                }
+                
+                baseInputs.forEach(input => {
+                    if (input !== e.target) {
+                        const origGrams = parseFloat(input.getAttribute('data-original-val')) || 1;
+                        let newGrams = origGrams * ratio;
+                        input.value = Math.round(newGrams * 10) / 10; 
+                        input.classList.add('highlight-update');
+                        setTimeout(() => input.classList.remove('highlight-update'), 300);
+                    }
+                });
+
+            // WENN DIE PORTIONEN GEÄNDERT WERDEN
+            } else if (e.target.classList.contains('portion-input')) {
+                const basePortions = parseFloat(e.target.getAttribute('data-base-portions')) || 1;
+                const currentPortions = parseFloat(e.target.value) || 0;
+                ratio = currentPortions / basePortions;
+
+                baseInputs.forEach(input => {
+                    const origGrams = parseFloat(input.getAttribute('data-original-val')) || 1;
+                    let newGrams = origGrams * ratio;
+                    input.value = Math.round(newGrams);
+                    input.classList.add('highlight-update');
+                    setTimeout(() => input.classList.remove('highlight-update'), 300);
+                });
+            } else {
+                return;
+            }
+
+            // BERECHNUNG ALLER ANDEREN ZUTATEN
+            if (baseInputs.length > 0) {
+                const primaryBaseInput = baseInputs[0];
+                const origGrams = parseFloat(primaryBaseInput.getAttribute('data-original-val')) || 1;
+                const currentGrams = origGrams * ratio;
+                const inputPercent = parseFloat(primaryBaseInput.getAttribute('data-base-percent')) || 100;
+                const true100 = currentGrams / (inputPercent / 100);
+
+                const calcSpans = recipeCard.querySelectorAll('.calc-val');
+                calcSpans.forEach(span => {
+                    const percent = parseFloat(span.getAttribute('data-percent'));
+                    if (!isNaN(percent)) {
+                        let calc = true100 * (percent / 100);
+                        if (calc < 10 && calc % 1 !== 0) {
+                            calc = calc.toFixed(1).replace(/\.0$/, '');
+                        } else {
+                            calc = Math.round(calc);
+                        }
+                        span.innerText = calc + ' g';
+                        
+                        span.classList.add('highlight-update');
+                        setTimeout(() => span.classList.remove('highlight-update'), 300);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
