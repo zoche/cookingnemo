@@ -58,6 +58,39 @@
         
         @media (max-width: 900px) { .container { grid-template-columns: 1fr; } aside { position: static; height: auto; } }
         footer { text-align: center; padding: 3rem; color: var(--text-muted); border-top: 1px solid var(--border-color); margin-top: 4rem; }
+
+        /* Interactive Elements */
+        .base-input {
+            width: 70px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--accent-copper);
+            color: var(--accent-gold-light);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            text-align: right;
+            transition: all 0.2s ease;
+        }
+        .base-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        }
+        .base-input::-webkit-outer-spin-button,
+        .base-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .calc-val {
+            display: inline-block;
+            transition: color 0.3s;
+        }
+        .highlight-update {
+            color: var(--accent-gold-light);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -131,43 +164,43 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Knoblauch</strong> (gehackt)<br><strong>Sesampaste</strong><br><strong>Erdnussbutter</strong><br><strong>Zucker</strong><br><strong>Soja hell</strong><br><strong>Reisessig</strong></td>
-                                    <td>4 g<br>30 g<br>30 g<br>4 g<br>15 g<br>10 g</td>
+                                    <td><span class="calc-val" data-percent="1.8">4 g</span><br><span class="calc-val" data-percent="13.3">30 g</span><br><span class="calc-val" data-percent="13.3">30 g</span><br><span class="calc-val" data-percent="1.8">4 g</span><br><span class="calc-val" data-percent="6.7">15 g</span><br><span class="calc-val" data-percent="4.4">10 g</span></td>
                                     <td>1,8 %<br>13,3 %<br>13,3 %<br>1,8 %<br>6,7 %<br>4,4 %</td>
                                     <td>① In einer Schüssel mit einer Gabel verrühren (Masse ist zunächst sehr fest).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Chili-Öl</strong><br><strong>Soja hell</strong><br><strong>Marmite</strong> (optional)</td>
-                                    <td>55 g<br>15 g<br>3 g</td>
+                                    <td><span class="calc-val" data-percent="24.4">55 g</span><br><span class="calc-val" data-percent="6.7">15 g</span><br><span class="calc-val" data-percent="1.3">3 g</span></td>
                                     <td>24,4 %<br>6,7 %<br>1,3 %</td>
                                     <td>② Verrühren, bis Marmite gelöst. Auf Servierschüsseln verteilen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Pflanzenöl</strong><br><strong>Kräuterseitlinge & Shimeji</strong></td>
-                                    <td>14 g<br>120 g</td>
+                                    <td><span class="calc-val" data-percent="6.2">14 g</span><br><span class="calc-val" data-percent="53.3">120 g</span></td>
                                     <td>6,2 %<br>53,3 %</td>
                                     <td>③ Wok stark erhitzen, Öl zugeben. Pilze 3–4 Min. scharf anbraten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Enoki-Pilze</strong><br><strong>Salz & Soja hell</strong></td>
-                                    <td>30 g<br>n.B.</td>
+                                    <td><span class="calc-val" data-percent="13.3">30 g</span><br>n.B.</td>
                                     <td>13,3 %<br>-</td>
                                     <td>④ In der letzten Minute zugeben. Mit Salz und Tropfen Sojasauce würzen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Nudelkochwasser</strong> (kochend)</td>
-                                    <td>60 g</td>
+                                    <td><span class="calc-val" data-percent="26.6">60 g</span></td>
                                     <td>26,6 %</td>
                                     <td>⑤ Wasser zur Sesamsauce (①) geben und zu cremiger Emulsion rühren.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Jianshui-Nudeln</strong></td>
-                                    <td>225 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="225"> g</td>
                                     <td>100 %</td>
                                     <td>⑥ Bissfest garen (ca. 2 Min), abgießen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Frühlingszwiebeln</strong></td>
-                                    <td>15 g</td>
+                                    <td><span class="calc-val" data-percent="6.7">15 g</span></td>
                                     <td>6,7 %</td>
                                     <td>⑦ Nudeln auf Chili-Öl (②) geben. Mit Sesamsauce, Pilzen und Lauchzwiebeln toppen. Mischen.</td>
                                 </tr>
@@ -184,19 +217,19 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Mushroom Sauce</strong><br><strong>Soja hell</strong><br><strong>Soja dunkel</strong><br><strong>Zucker</strong><br><strong>Wasser</strong></td>
-                                    <td>33 g<br>22 g<br>6 g<br>4 g<br>30 g</td>
+                                    <td><span class="calc-val" data-percent="8.3">33 g</span><br><span class="calc-val" data-percent="5.5">22 g</span><br><span class="calc-val" data-percent="1.5">6 g</span><br><span class="calc-val" data-percent="1.0">4 g</span><br><span class="calc-val" data-percent="7.5">30 g</span></td>
                                     <td>8,3 %<br>5,5 %<br>1,5 %<br>1,0 %<br>7,5 %</td>
                                     <td>① In kleiner Schüssel glatt rühren.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Knoblauchzehen</strong><br><strong>Thai-Chilis</strong><br><strong>Pflanzenöl</strong></td>
-                                    <td>15 g<br>8 g<br>14 g</td>
+                                    <td><span class="calc-val" data-percent="3.8">15 g</span><br><span class="calc-val" data-percent="2.0">8 g</span><br><span class="calc-val" data-percent="3.5">14 g</span></td>
                                     <td>3,8 %<br>2,0 %<br>3,5 %</td>
                                     <td>② Knoblauch und Chilis zerstoßen. Wok erhitzen, Paste 20 Sek. anrösten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Rinderhackfleisch</strong></td>
-                                    <td>400 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="400"> g</td>
                                     <td>100 %</td>
                                     <td>③ Zugeben, flach verteilen, anbräunen, dann krümelig braten.</td>
                                 </tr>
@@ -208,7 +241,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Thai-Basilikum</strong></td>
-                                    <td>20 g</td>
+                                    <td><span class="calc-val" data-percent="5.0">20 g</span></td>
                                     <td>5,0 %</td>
                                     <td>⑤ Hitze aus. Basilikum 10 Sek. unterheben. Servieren.</td>
                                 </tr>
@@ -225,43 +258,43 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Rinderhackfleisch</strong><br><strong>Pflanzenöl</strong></td>
-                                    <td>250 g<br>14 g</td>
+                                    <td><span class="calc-val" data-percent="62.5">250 g</span><br><span class="calc-val" data-percent="3.5">14 g</span></td>
                                     <td>62,5 %<br>3,5 %</td>
                                     <td>① Im heißen Wok krümelig und kräftig braun anbraten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Knoblauch & Ingwer</strong> (gehackt)<br><strong>Ya Cai</strong> (Senfgemüse)</td>
-                                    <td>10 g<br>50 g</td>
+                                    <td><span class="calc-val" data-percent="2.5">10 g</span><br><span class="calc-val" data-percent="12.5">50 g</span></td>
                                     <td>2,5 %<br>12,5 %</td>
                                     <td>② Zugeben und 1 Minute mitbraten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Shaoxing-Reiswein</strong><br><strong>Süße Bohnenpaste</strong><br><strong>Soja dunkel</strong></td>
-                                    <td>15 g<br>15 g<br>5 g</td>
+                                    <td><span class="calc-val" data-percent="3.8">15 g</span><br><span class="calc-val" data-percent="3.8">15 g</span><br><span class="calc-val" data-percent="1.3">5 g</span></td>
                                     <td>3,8 %<br>3,8 %<br>1,3 %</td>
                                     <td>③ Mit Reiswein ablöschen, Pasten einrühren. Fleisch (Saozi) beiseitestellen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Sesampaste</strong><br><strong>Soja hell</strong><br><strong>Reisessig</strong><br><strong>Chili-Öl</strong><br><strong>Sichuan-Pfeffer</strong><br><strong>Zucker</strong><br><strong>Knoblauch</strong> (gerieben)</td>
-                                    <td>30 g<br>45 g<br>15 g<br>60 g<br>3 g<br>4 g<br>4 g</td>
+                                    <td><span class="calc-val" data-percent="7.5">30 g</span><br><span class="calc-val" data-percent="11.3">45 g</span><br><span class="calc-val" data-percent="3.8">15 g</span><br><span class="calc-val" data-percent="15.0">60 g</span><br><span class="calc-val" data-percent="0.8">3 g</span><br><span class="calc-val" data-percent="1.0">4 g</span><br><span class="calc-val" data-percent="1.0">4 g</span></td>
                                     <td>7,5 %<br>11,3 %<br>3,8 %<br>15,0 %<br>0,8 %<br>1,0 %<br>1,0 %</td>
                                     <td>④ In einer Schüssel zur Würzbasis verrühren.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Nudelkochwasser</strong> (heiß)</td>
-                                    <td>60 g</td>
+                                    <td><span class="calc-val" data-percent="15.0">60 g</span></td>
                                     <td>15,0 %</td>
                                     <td>⑤ Zur Basis geben, emulgieren und auf Schüsseln verteilen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Frische Weizennudeln</strong><br><strong>Pak Choi</strong> (halbiert)</td>
-                                    <td>400 g<br>100 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="400"> g<br><span class="calc-val" data-percent="25.0">100 g</span></td>
                                     <td>100 %<br>25,0 %</td>
                                     <td>⑥ Nudeln garen, Pak Choi in der letzten Minute mitkochen. Abgießen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Frühlingszwiebeln</strong></td>
-                                    <td>15 g</td>
+                                    <td><span class="calc-val" data-percent="3.8">15 g</span></td>
                                     <td>3,8 %</td>
                                     <td>⑦ Nudeln auf Sauce geben, mit Fleisch (③) und Zwiebeln toppen.</td>
                                 </tr>
@@ -277,43 +310,43 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Rinderhackfleisch</strong></td>
-                                    <td>200 g</td>
+                                    <td><span class="calc-val" data-percent="50.0">200 g</span></td>
                                     <td>50,0 %</td>
                                     <td>① Im heißen Wok kräftig krümelig anbraten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Doubanjiang</strong><br><strong>Douchi</strong> (schwarze Bohnen)</td>
-                                    <td>30 g<br>15 g</td>
+                                    <td><span class="calc-val" data-percent="7.5">30 g</span><br><span class="calc-val" data-percent="3.8">15 g</span></td>
                                     <td>7,5 %<br>3,8 %</td>
                                     <td>② Zugeben und rühren, bis sich das Öl tiefrot färbt.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Knoblauch & Ingwer</strong></td>
-                                    <td>15 g</td>
+                                    <td><span class="calc-val" data-percent="3.8">15 g</span></td>
                                     <td>3,8 %</td>
                                     <td>③ Zugeben und 30 Sekunden mitdünsten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Hühnerbrühe</strong><br><strong>Soja hell</strong><br><strong>Zucker</strong></td>
-                                    <td>200 g<br>15 g<br>4 g</td>
+                                    <td><span class="calc-val" data-percent="50.0">200 g</span><br><span class="calc-val" data-percent="3.8">15 g</span><br><span class="calc-val" data-percent="1.0">4 g</span></td>
                                     <td>50,0 %<br>3,8 %<br>1,0 %</td>
                                     <td>④ Ablöschen und einrühren.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Tofu</strong> (gewürfelt, vorab gewässert)</td>
-                                    <td>400 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="400"> g</td>
                                     <td>100 %</td>
                                     <td>⑤ Hineingleiten lassen. 3-4 Min. sanft köcheln (nicht rühren!).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Speisestärke</strong><br><strong>Wasser</strong></td>
-                                    <td>15 g<br>45 g</td>
+                                    <td><span class="calc-val" data-percent="3.8">15 g</span><br><span class="calc-val" data-percent="11.3">45 g</span></td>
                                     <td>3,8 %<br>11,3 %</td>
                                     <td>⑥ Glatt rühren, schrittweise zugeben bis Sauce sämig bindet.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Sichuan-Pfeffer</strong><br><strong>Frühlingszwiebeln</strong></td>
-                                    <td>4 g<br>15 g</td>
+                                    <td><span class="calc-val" data-percent="1.0">4 g</span><br><span class="calc-val" data-percent="3.8">15 g</span></td>
                                     <td>1,0 %<br>3,8 %</td>
                                     <td>⑦ Anrichten, bestreuen und sofort servieren.</td>
                                 </tr>
@@ -328,43 +361,43 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Pflanzenöl</strong></td>
-                                    <td>27 g</td>
+                                    <td><span class="calc-val" data-percent="6.8">27 g</span></td>
                                     <td>6,8 %</td>
                                     <td>① Wok stark erhitzen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Grüne Bohnen</strong></td>
-                                    <td>400 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="400"> g</td>
                                     <td>100 %</td>
                                     <td>② Bohnen 5-7 Min. trocken braten (Blasenbildung). Herausnehmen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Sichuan-Pfeffer</strong><br><strong>Chilis</strong> (getrocknet)</td>
-                                    <td>3 g<br>5 g</td>
+                                    <td><span class="calc-val" data-percent="0.8">3 g</span><br><span class="calc-val" data-percent="1.3">5 g</span></td>
                                     <td>0,8 %<br>1,3 %</td>
                                     <td>③ Im Wok kurz anrösten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Rinderhackfleisch</strong></td>
-                                    <td>150 g</td>
+                                    <td><span class="calc-val" data-percent="37.5">150 g</span></td>
                                     <td>37,5 %</td>
                                     <td>④ Zugeben, scharf und krümelig braten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Knoblauch & Ingwer</strong><br><strong>Ya Cai</strong> (Senfgemüse)</td>
-                                    <td>15 g<br>30 g</td>
+                                    <td><span class="calc-val" data-percent="3.8">15 g</span><br><span class="calc-val" data-percent="7.5">30 g</span></td>
                                     <td>3,8 %<br>7,5 %</td>
                                     <td>⑤ Zugeben und 1 Minute mitbraten. Bohnen wieder in Wok geben.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Shaoxing-Reiswein</strong><br><strong>Soja hell</strong><br><strong>Zucker</strong></td>
-                                    <td>15 g<br>22 g<br>2 g</td>
+                                    <td><span class="calc-val" data-percent="3.8">15 g</span><br><span class="calc-val" data-percent="5.5">22 g</span><br><span class="calc-val" data-percent="0.5">2 g</span></td>
                                     <td>3,8 %<br>5,5 %<br>0,5 %</td>
                                     <td>⑥ Ablöschen, 1 Minute stark schwenken.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Sesamöl</strong></td>
-                                    <td>3 g</td>
+                                    <td><span class="calc-val" data-percent="0.8">3 g</span></td>
                                     <td>0,8 %</td>
                                     <td>⑦ Abrunden und servieren.</td>
                                 </tr>
@@ -379,13 +412,13 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Shiitake-Pilze</strong> (eingeweicht)</td>
-                                    <td>250 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="250"> g</td>
                                     <td>100 %</td>
                                     <td>① Wasser auspressen, in 1,5 cm breite Streifen schneiden.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Kartoffelstärke</strong></td>
-                                    <td>75 g</td>
+                                    <td><span class="calc-val" data-percent="30.0">75 g</span></td>
                                     <td>30,0 %</td>
                                     <td>② Pilze darin wälzen bis sie gleichmäßig ummantelt sind.</td>
                                 </tr>
@@ -397,25 +430,25 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Sichuan-Pfeffer</strong><br><strong>Chilis</strong> (getrocknet)</td>
-                                    <td>3 g<br>5 g</td>
+                                    <td><span class="calc-val" data-percent="1.2">3 g</span><br><span class="calc-val" data-percent="2.0">5 g</span></td>
                                     <td>1,2 %<br>2,0 %</td>
                                     <td>④ Wok bis auf 3 EL Öl leeren. Pfeffer und Chilis kurz rösten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Doubanjiang</strong></td>
-                                    <td>22 g</td>
+                                    <td><span class="calc-val" data-percent="8.8">22 g</span></td>
                                     <td>8,8 %</td>
                                     <td>⑤ Einrühren bis Öl tiefrot wird.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Knoblauch & Ingwer</strong><br><strong>Grüne Paprika</strong></td>
-                                    <td>24 g<br>175 g</td>
+                                    <td><span class="calc-val" data-percent="9.6">24 g</span><br><span class="calc-val" data-percent="70.0">175 g</span></td>
                                     <td>9,6 %<br>70,0 %</td>
                                     <td>⑥ Zugeben und anbraten. Frittierte Pilze untermischen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Stärke</strong><br><strong>Zucker</strong><br><strong>Soja hell</strong><br><strong>Soja dunkel</strong><br><strong>Wasser</strong></td>
-                                    <td>2 g<br>2 g<br>5 g<br>2 g<br>60 g</td>
+                                    <td><span class="calc-val" data-percent="0.8">2 g</span><br><span class="calc-val" data-percent="0.8">2 g</span><br><span class="calc-val" data-percent="2.0">5 g</span><br><span class="calc-val" data-percent="0.8">2 g</span><br><span class="calc-val" data-percent="24.0">60 g</span></td>
                                     <td>0,8 %<br>0,8 %<br>2,0 %<br>0,8 %<br>24,0 %</td>
                                     <td>⑦ Vorab verrühren, in den Wok gießen. Eindicken und Pilze glasieren.</td>
                                 </tr>
@@ -430,43 +463,43 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Pflanzenöl</strong></td>
-                                    <td>14 g</td>
+                                    <td><span class="calc-val" data-percent="3.5">14 g</span></td>
                                     <td>3,5 %</td>
                                     <td>① Wok stark erhitzen, Öl zugeben.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Eier</strong> (Größe L), verquirlt</td>
-                                    <td>165 g</td>
+                                    <td><span class="calc-val" data-percent="41.2">165 g</span></td>
                                     <td>41,2 %</td>
                                     <td>② Sofort kräftig rühren (Scrambled). Saftig herausnehmen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Pflanzenöl</strong></td>
-                                    <td>28 g</td>
+                                    <td><span class="calc-val" data-percent="7.0">28 g</span></td>
                                     <td>7,0 %</td>
                                     <td>③ Wok auswischen, erneut erhitzen. Öl zugeben.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Frühlingszwiebeln</strong> (weiß)<br><strong>Knoblauch</strong>, gehackt</td>
-                                    <td>15 g<br>6 g</td>
+                                    <td><span class="calc-val" data-percent="3.7">15 g</span><br><span class="calc-val" data-percent="1.5">6 g</span></td>
                                     <td>3,7 %<br>1,5 %</td>
                                     <td>④ Zusammen 15–20 Sekunden scharf anrösten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Reis</strong>, durchgekühlt</td>
-                                    <td>400 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="400"> g</td>
                                     <td>100 %</td>
                                     <td>⑤ Bei höchster Hitze 3–4 Min. braten (Dry-Frying).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Helle Sojasauce</strong></td>
-                                    <td>30 g</td>
+                                    <td><span class="calc-val" data-percent="7.5">30 g</span></td>
                                     <td>7,5 %</td>
                                     <td>⑥ Am Wokrand karamellisieren, unterrühren. Ei zugeben.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Frühlingszwiebeln</strong> (grün)<br><strong>Sesamöl</strong><br><strong>Weißer Pfeffer</strong></td>
-                                    <td>15 g<br>4 g<br>1 g</td>
+                                    <td><span class="calc-val" data-percent="3.7">15 g</span><br><span class="calc-val" data-percent="1.0">4 g</span><br><span class="calc-val" data-percent="0.2">1 g</span></td>
                                     <td>3,7 %<br>1,0 %<br>0,2 %</td>
                                     <td>⑦ Mit Pfeffer, Sesamöl abschmecken. Sofort servieren.</td>
                                 </tr>
@@ -485,25 +518,25 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Bohnen</strong> (vorbereitet)<br><strong>Fleisch</strong> (Gulasch)<br><strong>Speck</strong></td>
-                                    <td>2000 g<br>2000 g<br>250 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="2000"> g<br><span class="calc-val" data-percent="100.0">2000 g</span><br><span class="calc-val" data-percent="12.5">250 g</span></td>
                                     <td>100 %<br>100 %<br>12,5 %</td>
                                     <td>① Zusammen 25 Minuten auf Druckstufe 2 garen (Phase 1).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Kartoffelwürfel</strong><br><strong>Möhrenscheiben</strong><br><strong>Lauch</strong> (hell, angeröstet)</td>
-                                    <td>1200 g<br>1000 g<br>300 g</td>
+                                    <td><span class="calc-val" data-percent="60.0">1200 g</span><br><span class="calc-val" data-percent="50.0">1000 g</span><br><span class="calc-val" data-percent="15.0">300 g</span></td>
                                     <td>60,0 %<br>50,0 %<br>15,0 %</td>
                                     <td>② Hinzufügen. Topf ist nun voll. 20 Min. bei 95-100°C drucklos garen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Chipotlepulver</strong><br><strong>Lorbeerblätter</strong></td>
-                                    <td>5 g<br>10 Stk</td>
+                                    <td><span class="calc-val" data-percent="0.3">5 g</span><br>10 Stk</td>
                                     <td>0,3 %<br>-</td>
                                     <td>③ Würzen. Über Nacht bei ca. 0 °C durchkühlen und reifen lassen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Lauchringe</strong> (dunkelgrün)<br><strong>Sherry-Essig</strong><br><strong>Schmand</strong></td>
-                                    <td>200 g<br>30 g<br>200 g</td>
+                                    <td><span class="calc-val" data-percent="10.0">200 g</span><br><span class="calc-val" data-percent="1.5">30 g</span><br><span class="calc-val" data-percent="10.0">200 g</span></td>
                                     <td>10,0 %<br>1,5 %<br>10,0 %</td>
                                     <td>④ Serviertag: Auf 80°C erwärmen, Lauch 5 Min. ziehen lassen. Abschmecken.</td>
                                 </tr>
@@ -518,25 +551,25 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Rinderhackfleisch</strong></td>
-                                    <td>1600 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="1600"> g</td>
                                     <td>100 %</td>
                                     <td>① In Chargen scharf anbraten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Zwiebeln</strong> (gelb & rot)<br><strong>Knoblauch</strong></td>
-                                    <td>2000 g<br>45 g</td>
+                                    <td><span class="calc-val" data-percent="125.0">2000 g</span><br><span class="calc-val" data-percent="2.8">45 g</span></td>
                                     <td>125,0 %<br>2,8 %</td>
                                     <td>② Zugeben und mitrösten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Chipotle</strong><br><strong>Paprika scharf</strong><br><strong>Kakao</strong><br><strong>Ancho Flakes</strong><br><strong>Paprika geräuchert</strong><br><strong>Cumin</strong></td>
-                                    <td>40 g<br>40 g<br>40 g<br>20 g<br>10 g<br>10 g</td>
+                                    <td><span class="calc-val" data-percent="2.5">40 g</span><br><span class="calc-val" data-percent="2.5">40 g</span><br><span class="calc-val" data-percent="2.5">40 g</span><br><span class="calc-val" data-percent="1.3">20 g</span><br><span class="calc-val" data-percent="0.6">10 g</span><br><span class="calc-val" data-percent="0.6">10 g</span></td>
                                     <td>2,5 %<br>2,5 %<br>2,5 %<br>1,3 %<br>0,6 %<br>0,6 %</td>
                                     <td>③ Gewürze kurz mitrösten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Kidney-Bohnen</strong><br><strong>Bratenfond</strong><br><strong>Polpa</strong> (Tomaten)<br><strong>Salz</strong></td>
-                                    <td>1400 g<br>3000 g<br>4140 g<br>50 g</td>
+                                    <td><span class="calc-val" data-percent="87.5">1400 g</span><br><span class="calc-val" data-percent="187.5">3000 g</span><br><span class="calc-val" data-percent="258.8">4140 g</span><br><span class="calc-val" data-percent="3.1">50 g</span></td>
                                     <td>87,5 %<br>187,5 %<br>258,8 %<br>3,1 %</td>
                                     <td>④ Alles in den Schnellkochtopf füllen. Unter Druck garen.</td>
                                 </tr>
@@ -554,19 +587,19 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Olivenöl</strong></td>
-                                    <td>600 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="600"> g</td>
                                     <td>100 %</td>
                                     <td>① Als Basis-Flüssigkeit bereitstellen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Parmesan</strong><br><strong>Pinienkerne</strong> (geröstet)<br><strong>Basilikum</strong></td>
-                                    <td>400 g<br>300 g<br>300 g</td>
+                                    <td><span class="calc-val" data-percent="66.7">400 g</span><br><span class="calc-val" data-percent="50.0">300 g</span><br><span class="calc-val" data-percent="50.0">300 g</span></td>
                                     <td>66,7 %<br>50,0 %<br>50,0 %</td>
                                     <td>② Zusammen mit etwas Öl im Mixer oder Mörser zerkleinern.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Knoblauch</strong><br><strong>Salz</strong><br><strong>Pfeffer</strong></td>
-                                    <td>15 g<br>15 g<br>3 g</td>
+                                    <td><span class="calc-val" data-percent="2.5">15 g</span><br><span class="calc-val" data-percent="2.5">15 g</span><br><span class="calc-val" data-percent="0.5">3 g</span></td>
                                     <td>2,5 %<br>2,5 %<br>0,5 %</td>
                                     <td>③ Fein abschmecken. In sterilisierte Gläser abfüllen, mit Öl bedecken.</td>
                                 </tr>
@@ -581,13 +614,13 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Ketchup</strong></td>
-                                    <td>1350 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="1350"> g</td>
                                     <td>100 %</td>
                                     <td>① In eine große Schüssel geben.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Crème fraîche</strong><br><strong>Currypulver</strong><br><strong>Paprikapulver</strong> (geräuchert)</td>
-                                    <td>300 g<br>30 g<br>30 g</td>
+                                    <td><span class="calc-val" data-percent="22.2">300 g</span><br><span class="calc-val" data-percent="2.2">30 g</span><br><span class="calc-val" data-percent="2.2">30 g</span></td>
                                     <td>22,2 %<br>2,2 %<br>2,2 %</td>
                                     <td>② Zur glatten Basis-Mischung verrühren.</td>
                                 </tr>
@@ -596,7 +629,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Basis-Mischung</strong><br><strong>Chipotlepulver</strong><br><strong>Paprikapulver</strong> (scharf)<br><strong>Painmaker BBQ</strong></td>
-                                    <td>1000 g<br>26 g<br>23 g<br>1,4 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="1000"> g<br><span class="calc-val" data-percent="2.6">26 g</span><br><span class="calc-val" data-percent="2.3">23 g</span><br><span class="calc-val" data-percent="0.14">1.4 g</span></td>
                                     <td>100 %<br>2,6 %<br>2,3 %<br>0,14 %</td>
                                     <td>③ Verrühren und im Kühlschrank ziehen lassen.</td>
                                 </tr>
@@ -617,7 +650,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Weizenmehl Typ 550</strong><br><strong>Wasser</strong><br><strong>Frischhefe</strong></td>
-                                    <td>160 g<br>160 g<br>0,3 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="31.4" value="160"> g<br><span class="calc-val" data-percent="31.4">160 g</span><br><span class="calc-val" data-percent="0.06">0.3 g</span></td>
                                     <td>31,4 %<br>31,4 %<br>0,06 %</td>
                                     <td>① Mischen, 16–20 Stunden bei 18-20°C reifen lassen.</td>
                                 </tr>
@@ -626,13 +659,13 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Vorteig (Poolish)</strong><br><strong>Weizenmehl Typ 550</strong><br><strong>Wasser</strong></td>
-                                    <td>320 g<br>350 g<br>165 g</td>
+                                    <td><span class="calc-val" data-percent="62.7">320 g</span><br><span class="calc-val" data-percent="68.6">350 g</span><br><span class="calc-val" data-percent="32.4">165 g</span></td>
                                     <td>62,7 %<br>68,6 %<br>32,4 %</td>
                                     <td>② Autolyse: Verrühren und 30 Min. abgedeckt ruhen lassen.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Frischhefe</strong><br><strong>Wasser</strong> (Rest)<br><strong>Salz</strong></td>
-                                    <td>3 g<br>50 g<br>10 g</td>
+                                    <td><span class="calc-val" data-percent="0.59">3 g</span><br><span class="calc-val" data-percent="9.8">50 g</span><br><span class="calc-val" data-percent="1.96">10 g</span></td>
                                     <td>0,59 %<br>9,8 %<br>1,96 %</td>
                                     <td>③ Hefe zugeben. Salz in Restwasser lösen und portionsweise (Bassinage) einkneten.</td>
                                 </tr>
@@ -654,7 +687,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Pizzamehl Tipo 0</strong><br><strong>Wasser</strong> (4 °C kalt)<br><strong>Frischhefe</strong></td>
-                                    <td>1000 g<br>470 g<br>0,2 g</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" value="1000"> g<br><span class="calc-val" data-percent="47.0">470 g</span><br><span class="calc-val" data-percent="0.02">0.2 g</span></td>
                                     <td>100 %<br>47,0 %<br>0,02 %</td>
                                     <td>① Hefe in Kaltwasser lösen. Mehl krümelig mischen. 12-15 Std bei 15-18°C reifen.</td>
                                 </tr>
@@ -663,13 +696,13 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Reifer Biga-Vorteig</strong><br><strong>Eiswasser</strong> (1 °C)</td>
-                                    <td>1470 g<br>300 g</td>
+                                    <td><span class="calc-val" data-percent="147.0">1470 g</span><br><span class="calc-val" data-percent="30.0">300 g</span></td>
                                     <td>147 %<br>30,0 %</td>
                                     <td>② Bassinage: Eiswasser extrem langsam schluckweise in Biga kneten.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Salz</strong><br><strong>Flüssigmalz / Honig</strong><br><strong>Frischhefe</strong></td>
-                                    <td>22 g<br>10 g<br>1 g</td>
+                                    <td><span class="calc-val" data-percent="2.2">22 g</span><br><span class="calc-val" data-percent="1.0">10 g</span><br><span class="calc-val" data-percent="0.1">1 g</span></td>
                                     <td>2,2 %<br>1,0 %<br>0,1 %</td>
                                     <td>③ Erst beim allerletzten Schluck Wasser zugeben. Glatt kneten.</td>
                                 </tr>
@@ -687,5 +720,37 @@
         </div>
         <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout)</footer>
     </div>
+    
+    <script>
+        document.addEventListener('input', function(e) {
+            if (e.target.classList.contains('base-input')) {
+                const table = e.target.closest('table');
+                const baseInputVal = parseFloat(e.target.value) || 0;
+                // Calculate what the true "100%" value is, in case the input itself is e.g. 31.4%
+                const inputPercent = parseFloat(e.target.getAttribute('data-base-percent')) || 100;
+                const true100 = baseInputVal / (inputPercent / 100);
+                
+                const calcSpans = table.querySelectorAll('.calc-val');
+                calcSpans.forEach(span => {
+                    const percent = parseFloat(span.getAttribute('data-percent'));
+                    if (!isNaN(percent)) {
+                        let calc = true100 * (percent / 100);
+                        
+                        // Rounding logic: small values get 1 decimal, larger get integers
+                        if (calc < 10 && calc % 1 !== 0) {
+                            calc = calc.toFixed(1).replace(/\.0$/, '');
+                        } else {
+                            calc = Math.round(calc);
+                        }
+                        span.innerText = calc + ' g';
+                        
+                        // Visual feedback flash
+                        span.classList.add('highlight-update');
+                        setTimeout(() => span.classList.remove('highlight-update'), 300);
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
