@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capt. Nemo cooking 20,000 leagues below</title>
+    
+    <!-- PWA / App-Verknüpfungen -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0c1829">
+    <link rel="apple-touch-icon" href="title.jpg">
+
     <style>
         :root {
             --bg-deep: #050b14;
@@ -21,39 +27,12 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; }
 
-        /* Fullscreen Landing Page */
-        .landing-page { 
-            height: 100vh; 
-            width: 100%; 
-            position: relative; 
-            cursor: pointer; 
-            display: block; 
-            overflow: hidden;
-            background-color: var(--bg-deep);
-        }
-        .landing-cover-img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            object-position: center; 
-            display: block; 
-        }
-        .scroll-down-hint { 
-            position: absolute; 
-            bottom: 40px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            color: var(--accent-gold-light); 
-            font-size: 2rem; 
-            text-decoration: none; 
-            animation: bounce 2s infinite; 
-            opacity: 0.9;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
-            pointer-events: none; /* Klicks gehen durch den Pfeil hindurch auf das Bild */
-        }
+        .landing-page { height: 100vh; width: 100%; position: relative; cursor: pointer; display: block; overflow: hidden; background-color: var(--bg-deep); }
+        .landing-cover-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+        .scroll-down-hint { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); color: var(--accent-gold-light); font-size: 2rem; text-decoration: none; animation: bounce 2s infinite; opacity: 0.9; text-shadow: 0 4px 10px rgba(0,0,0,0.8); pointer-events: none; }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); } 40% { transform: translate(-50%, -10px); } 60% { transform: translate(-50%, -5px); } }
 
-        header { background: linear-gradient(135deg, #02060c 0%, #0c1b33 100%); border-bottom: 3px solid var(--accent-copper); padding: 3rem 2rem 2rem 2rem; text-align: center; position: relative; overflow: hidden; }
+        header { background: linear-gradient(135deg, #02060c 0%, #0c1b33 100%); border-bottom: 3px solid var(--accent-copper); padding: 4rem 2rem 3rem 2rem; text-align: center; position: relative; overflow: hidden; }
         h1 { font-size: 3rem; color: var(--accent-gold-light); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; border-bottom: 2px solid var(--accent-copper); display: inline-block; padding-bottom: 10px; }
         .subtitle { font-size: 1.2rem; color: var(--accent-copper); font-style: italic; margin-top: 1rem; }
         .container { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem; display: grid; grid-template-columns: 280px 1fr; gap: 3rem; }
@@ -74,6 +53,9 @@
         .recipe-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.8rem; margin-bottom: 2rem; transition: border-color 0.2s; }
         .recipe-card:hover { border-color: var(--accent-copper); }
         .recipe-meta { font-size: 0.9rem; color: var(--accent-copper); margin-bottom: 1rem; font-style: italic; }
+        
+        /* Rezept-Fotos */
+        .recipe-photo { width: 100%; max-height: 450px; object-fit: cover; border-radius: 6px; margin-bottom: 1rem; border: 1px solid var(--border-color); }
         
         /* Modernist Cuisine Table Styles */
         table.modernist { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
@@ -110,20 +92,12 @@
             -webkit-appearance: none;
             margin: 0;
         }
-        .calc-val {
-            display: inline-block;
-            transition: color 0.3s;
-        }
-        .highlight-update {
-            color: var(--accent-gold-light) !important;
-            font-weight: bold;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
-        }
+        .calc-val { display: inline-block; transition: color 0.3s; }
+        .highlight-update { color: var(--accent-gold-light) !important; font-weight: bold; text-shadow: 0 0 8px rgba(212, 175, 55, 0.5); }
     </style>
 </head>
 <body>
     
-    <!-- Klick auf das Bild scrollt sanft zum Inhaltsverzeichnis (cookbook-content) -->
     <div class="landing-page" onclick="document.getElementById('cookbook-content').scrollIntoView({behavior: 'smooth'})">
         <img src="title.jpg" alt="Capt. Nemo cooking" class="landing-cover-img">
         <div class="scroll-down-hint">&#9660;</div>
@@ -187,6 +161,7 @@
                     <div class="recipe-card" id="r-1-1">
                         <h3>1.1 Shanghai-Style Sesame Noodles</h3>
                         <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="2" value="2" step="0.5"> | Aktive Zeit: ca. 15 Min.</div>
+                        <img src="shanghai-noodles.jpg" alt="Shanghai Noodles" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -240,6 +215,7 @@
                     <div class="recipe-card" id="r-1-2">
                         <h3>1.2 Pad Krapao Neua</h3>
                         <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="2.5" value="2.5" step="0.5"> | Aktive Zeit: ca. 10 Min.</div>
+                        <img src="pad-krapao.jpg" alt="Pad Krapao" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -281,6 +257,7 @@
                     <div class="recipe-card" id="r-1-3">
                         <h3>1.3 Dan Dan Nudeln (Sichuan-Style)</h3>
                         <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="2.5" value="2.5" step="0.5"></div>
+                        <img src="dan-dan-nudeln.jpg" alt="Dan Dan Nudeln" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -328,12 +305,12 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:10px;">* (% des Gesamtgewichts: Nudeln)</p>
                     </div>
                     
                     <div class="recipe-card" id="r-1-4">
                         <h3>1.4 Mapo Tofu</h3>
                         <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="2.5" value="2.5" step="0.5"></div>
+                        <img src="mapo-tofu.jpg" alt="Mapo Tofu" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -386,6 +363,7 @@
                     <div class="recipe-card" id="r-1-5">
                         <h3>1.5 Sichuan-Style Grüne Bohnen (Gan Bian Si Ji Dou)</h3>
                         <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="2.5" value="2.5" step="0.5"></div>
+                        <img src="sichuan-bohnen.jpg" alt="Sichuan Bohnen" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -438,6 +416,7 @@
                     <div class="recipe-card" id="r-1-8">
                         <h3>1.8 Dry-fried Aale aus Shiitake (Vegetarisch)</h3>
                         <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="2" value="2" step="0.5"></div>
+                        <img src="dry-fried-aale.jpg" alt="Dry Fried Aale" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -490,6 +469,7 @@
                     <div class="recipe-card" id="r-1-9">
                         <h3>1.9 Egg Fried Rice (Einfacher Wok-Bratreis mit Ei)</h3>
                         <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="2" value="2" step="0.5"></div>
+                        <img src="egg-fried-rice.jpg" alt="Egg Fried Rice" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -546,6 +526,7 @@
                     <div class="recipe-card" id="r-2-1">
                         <h3>2.1 Deftiger Fleisch-Bohneneintopf (10L)</h3>
                         <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="15" value="15" step="1"> (großer Ansatz)</div>
+                        <img src="bohneneintopf.jpg" alt="Bohneneintopf" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -580,6 +561,7 @@
                     <div class="recipe-card" id="r-2-3">
                         <h3>2.3 Großes Chili con Carne (Vorratsansatz)</h3>
                         <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="15" value="15" step="1"> (großer Ansatz)</div>
+                        <img src="chili-con-carne.jpg" alt="Chili con Carne" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -617,6 +599,7 @@
                     <div class="recipe-card" id="r-3-1">
                         <h3>3.1 Pesto (Großer Hausansatz)</h3>
                         <div class="recipe-meta">Ansatz: <input type="number" class="portion-input" data-base-portions="1" value="1" step="0.5">x (Großer Hausansatz)</div>
+                        <img src="pesto.jpg" alt="Pesto" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -645,6 +628,7 @@
                     <div class="recipe-card" id="r-3-2">
                         <h3>3.2 Curry-Ketchup für Pommes Frites</h3>
                         <div class="recipe-meta">Ansatz: <input type="number" class="portion-input" data-base-portions="1" value="1" step="0.5">x</div>
+                        <img src="curry-ketchup.jpg" alt="Curry Ketchup" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -679,6 +663,7 @@
                     <div class="recipe-card" id="r-5-1">
                         <h3>5.1 Baguettes nach Anis Bouabsa (55 Std.)</h3>
                         <div class="recipe-meta">Ergibt: <input type="number" class="portion-input" data-base-portions="4" value="4" step="1"> Baguettes</div>
+                        <img src="baguettes.jpg" alt="Baguettes" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -717,6 +702,7 @@
                         
                         <h3 style="margin-top:2rem;">5.2 Pizzateig aus 100% Biga (Dietmar Kappl)</h3>
                         <div class="recipe-meta">Ergibt: <input type="number" class="portion-input" data-base-portions="6" value="6" step="1"> Teiglinge</div>
+                        <img src="pizzateig.jpg" alt="Pizzateig" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
@@ -756,9 +742,19 @@
                 </section>
             </main>
         </div>
-        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout) <span style="color:var(--accent-gold);">v2.0</span></footer>
+        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout) <span style="color:var(--accent-gold);">v3.0</span></footer>
     </div>
     
+    <!-- PWA Service Worker Start -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').catch(() => {});
+            });
+        }
+    </script>
+
+    <!-- Berechnungslogik -->
     <script>
         document.addEventListener('input', function(e) {
             const recipeCard = e.target.closest('.recipe-card');
@@ -769,7 +765,6 @@
             
             let ratio = 1;
 
-            // WENN DIE HAUPTZUTAT GEÄNDERT WIRD
             if (e.target.classList.contains('base-input')) {
                 const originalVal = parseFloat(e.target.getAttribute('data-original-val')) || 1;
                 const currentVal = parseFloat(e.target.value) || 0;
@@ -793,7 +788,6 @@
                     }
                 });
 
-            // WENN DIE PORTIONEN GEÄNDERT WERDEN
             } else if (e.target.classList.contains('portion-input')) {
                 const basePortions = parseFloat(e.target.getAttribute('data-base-portions')) || 1;
                 const currentPortions = parseFloat(e.target.value) || 0;
@@ -810,7 +804,6 @@
                 return;
             }
 
-            // BERECHNUNG ALLER ANDEREN ZUTATEN
             if (baseInputs.length > 0) {
                 const primaryBaseInput = baseInputs[0];
                 const origGrams = parseFloat(primaryBaseInput.getAttribute('data-original-val')) || 1;
