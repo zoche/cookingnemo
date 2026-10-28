@@ -124,7 +124,7 @@
 </head>
 <body>
     
-    <!-- Audio Player (unsichtbar, lädt von zoche.de) -->
+    <!-- Audio Player (unsichtbar, lädt von zoche.de vor) -->
     <audio id="bg-music" loop preload="auto">
         <source src="https://zoche.de/soundtrack.mp3" type="audio/mpeg">
     </audio>
@@ -161,6 +161,7 @@
                             <li><a href="#r-1-7">1.7 Chicken with Basil & Fish Sauce</a></li>
                             <li><a href="#r-1-8">1.8 Dry-fried Aale</a></li>
                             <li><a href="#r-1-9">1.9 Egg Fried Rice</a></li>
+                            <li><a href="#r-1-10">1.10 Fish-fragrant Aubergines</a></li>
                         </ul>
                     </li>
                     <li><a href="#kapitel-2">2. Schnellkochtopf (10L)</a>
@@ -700,6 +701,60 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <div class="recipe-card" id="r-1-10">
+                        <h3>1.10 Fish-fragrant Aubergines (Yuxiang Qiezi)</h3>
+                        <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="2" value="2" step="0.5"></div>
+                        <img src="yuxiang-qiezi.jpg" alt="Yuxiang Qiezi" class="recipe-photo" onerror="this.style.display='none'">
+                        <table class="modernist">
+                            <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Auberginen</strong><br><strong>Salz</strong></td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" data-original-val="600" value="600"> g<br>n.B.</td>
+                                    <td>100 %<br>-</td>
+                                    <td>① Auberginen in ca. 2x7 cm dicke Stifte schneiden. Salzen, gut mischen und mind. 30 Minuten ziehen lassen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frittieröl</strong></td>
+                                    <td>n.B.</td>
+                                    <td>-</td>
+                                    <td>② Auberginen abspülen, abtropfen und mit Küchenpapier trocken tupfen. Öl auf 200 °C erhitzen. In 2-3 Chargen ca. 3 Min. frittieren, bis sie weich und leicht golden sind. Auf Küchenpapier abtropfen lassen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Doubanjiang</strong> (Chili-Bohnen-Paste)</td>
+                                    <td><span class="calc-val" data-percent="3.7">22 g</span></td>
+                                    <td>3,7 %</td>
+                                    <td>③ Wok bis auf 3 EL Öl leeren (mittlere Hitze). Paste anbraten, bis das Öl rot wird und duftet (nicht verbrennen!).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Knoblauch</strong> (fein gehackt)<br><strong>Ingwer</strong> (fein gehackt)</td>
+                                    <td><span class="calc-val" data-percent="2.5">15 g</span><br><span class="calc-val" data-percent="1.7">10 g</span></td>
+                                    <td>2,5 %<br>1,7 %</td>
+                                    <td>④ In den Wok geben und unter Rühren anbraten, bis es wunderbar duftet.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Heiße Brühe oder Wasser</strong><br><strong>Zucker</strong><br><strong>Helle Sojasauce</strong><br><strong>Frittierte Auberginen</strong></td>
+                                    <td><span class="calc-val" data-percent="25.0">150 g</span><br><span class="calc-val" data-percent="2.7">16 g</span><br><span class="calc-val" data-percent="0.8">5 g</span><br><em>v. o.</em></td>
+                                    <td>25,0 %<br>2,7 %<br>0,8 %<br>-</td>
+                                    <td>⑤ Flüssigkeiten und Zucker eingießen, aufkochen. Auberginen zugeben und sanft unterheben (nicht zerdrücken!). Etwa 1 Minute köcheln lassen, damit sie den Geschmack aufnehmen.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kartoffelstärke</strong><br><strong>Kaltes Wasser</strong></td>
+                                    <td><span class="calc-val" data-percent="0.5">3 g</span><br><span class="calc-val" data-percent="2.5">15 g</span></td>
+                                    <td>0,5 %<br>2,5 %</td>
+                                    <td>⑥ Verrühren und schrittweise (in ca. 3 Etappen) einrühren, bis eine sämige Sauce ("luxurious gravy") entsteht.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Chinkiang-Essig</strong><br><strong>Frühlingszwiebelgrün</strong> (in Ringen)</td>
+                                    <td><span class="calc-val" data-percent="2.5">15 g</span><br><span class="calc-val" data-percent="5.0">30 g</span></td>
+                                    <td>2,5 %<br>5,0 %</td>
+                                    <td>⑦ Essig und den Großteil der Frühlingszwiebeln dazugeben. Kurz für wenige Sekunden durchschwenken. Anrichten und mit restlichen Zwiebeln bestreut servieren.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:10px;">* (% des Gesamtgewichts der Hauptzutat: Auberginen)</p>
+                    </div>
                 </section>
                 
                 <section id="kapitel-2">
@@ -954,7 +1009,7 @@
                 </section>
             </main>
         </div>
-        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout) <span style="color:var(--accent-gold);">v5.2</span></footer>
+        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout) <span style="color:var(--accent-gold);">v5.4</span></footer>
     </div>
     
     <!-- PWA Service Worker Start -->
@@ -972,12 +1027,11 @@
         const bgMusic = document.getElementById('bg-music');
         const musicToggleBtn = document.getElementById('music-toggle-btn');
 
-        // Funktion beim Tippen auf das Titelbild
         function startApp() {
             // Sanft nach unten scrollen
             document.getElementById('cookbook-content').scrollIntoView({behavior: 'smooth'});
             
-            // Musik beim ersten Klick starten
+            // Musik beim ersten Klick starten (robuste Version ohne programmierte Lautstärkeregelung)
             if (!musicStarted) {
                 bgMusic.play().then(() => {
                     musicStarted = true;
@@ -992,7 +1046,6 @@
             }
         }
 
-        // Funktion für den Mute/Unmute-Button unten rechts
         function toggleMusic() {
             if (bgMusic.paused) {
                 bgMusic.play();
@@ -1013,7 +1066,6 @@
             
             let ratio = 1;
 
-            // WENN DIE HAUPTZUTAT GEÄNDERT WIRD
             if (e.target.classList.contains('base-input')) {
                 const originalVal = parseFloat(e.target.getAttribute('data-original-val')) || 1;
                 const currentVal = parseFloat(e.target.value) || 0;
@@ -1037,7 +1089,6 @@
                     }
                 });
 
-            // WENN DIE PORTIONEN GEÄNDERT WERDEN
             } else if (e.target.classList.contains('portion-input')) {
                 const basePortions = parseFloat(e.target.getAttribute('data-base-portions')) || 1;
                 const currentPortions = parseFloat(e.target.value) || 0;
@@ -1054,7 +1105,6 @@
                 return;
             }
 
-            // BERECHNUNG ALLER ANDEREN ZUTATEN
             if (baseInputs.length > 0) {
                 const primaryBaseInput = baseInputs[0];
                 const origGrams = parseFloat(primaryBaseInput.getAttribute('data-original-val')) || 1;
