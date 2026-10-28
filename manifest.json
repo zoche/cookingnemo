@@ -1,0 +1,21 @@
+{
+  "name": "Capt. Nemo cooking",
+  "short_name": "Nemo Cooking",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#050b14",
+  "theme_color": "#0c1829",
+  "description": "Eine fortlaufende Rezeptsammlung",
+  "icons": [
+    {
+      "src": "title.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "title.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
