@@ -125,7 +125,7 @@
 <body>
     
     <!-- Audio Player (unsichtbar, lädt von zoche.de) -->
-    <audio id="bg-music" loop>
+    <audio id="bg-music" loop preload="auto">
         <source src="https://zoche.de/soundtrack.mp3" type="audio/mpeg">
     </audio>
 
@@ -979,12 +979,15 @@
             
             // Musik beim ersten Klick starten
             if (!musicStarted) {
-                bgMusic.volume = 0.5; // Auf angenehme 50% Lautstärke setzen
                 bgMusic.play().then(() => {
                     musicStarted = true;
                     musicToggleBtn.style.display = 'flex'; // Mute-Button einblenden
+                    musicToggleBtn.innerHTML = '🔊';
                 }).catch(err => {
-                    console.log("Audio konnte nicht gestartet werden (Browser-Blockade).");
+                    console.log("Audio-Blockade oder Ladeverzögerung.");
+                    // Fallback: Button trotzdem anzeigen, damit man manuell starten kann
+                    musicToggleBtn.style.display = 'flex';
+                    musicToggleBtn.innerHTML = '🔇';
                 });
             }
         }
