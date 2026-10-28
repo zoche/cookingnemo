@@ -124,9 +124,9 @@
 </head>
 <body>
     
-    <!-- Audio Player (unsichtbar) -->
+    <!-- Audio Player (unsichtbar, lädt von zoche.de) -->
     <audio id="bg-music" loop>
-        <source src="soundtrack.mp3" type="audio/mpeg">
+        <source src="https://zoche.de/soundtrack.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Floating Mute/Unmute Button (wird erst beim Scrollen eingeblendet) -->
@@ -191,7 +191,6 @@
             </aside>
 
             <main>
-                <!-- KAPITEL 1 -->
                 <section id="kapitel-1">
                     <h2>Kapitel 1: Asiatische Wok- und Nudelgerichte</h2>
                     
@@ -703,7 +702,6 @@
                     </div>
                 </section>
                 
-                <!-- KAPITEL 2 -->
                 <section id="kapitel-2">
                     <h2>Kapitel 2: Gerichte aus dem 10-Liter-Schnellkochtopf</h2>
                     
@@ -808,7 +806,6 @@
                     </div>
                 </section>
                 
-                <!-- KAPITEL 3 -->
                 <section id="kapitel-3">
                     <h2>Kapitel 3: Klassiker und Grundrezepte</h2>
                     <div class="recipe-card" id="r-3-1">
@@ -873,7 +870,6 @@
                     </div>
                 </section>
                 
-                <!-- KAPITEL 5 -->
                 <section id="kapitel-5">
                     <h2>Kapitel 5: Backen und Teige</h2>
                     <div class="recipe-card" id="r-5-1">
@@ -958,7 +954,7 @@
                 </section>
             </main>
         </div>
-        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout) <span style="color:var(--accent-gold);">v5.0</span></footer>
+        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout) <span style="color:var(--accent-gold);">v5.2</span></footer>
     </div>
     
     <!-- PWA Service Worker Start -->
@@ -1014,6 +1010,7 @@
             
             let ratio = 1;
 
+            // WENN DIE HAUPTZUTAT GEÄNDERT WIRD
             if (e.target.classList.contains('base-input')) {
                 const originalVal = parseFloat(e.target.getAttribute('data-original-val')) || 1;
                 const currentVal = parseFloat(e.target.value) || 0;
@@ -1037,6 +1034,7 @@
                     }
                 });
 
+            // WENN DIE PORTIONEN GEÄNDERT WERDEN
             } else if (e.target.classList.contains('portion-input')) {
                 const basePortions = parseFloat(e.target.getAttribute('data-base-portions')) || 1;
                 const currentPortions = parseFloat(e.target.value) || 0;
@@ -1053,6 +1051,7 @@
                 return;
             }
 
+            // BERECHNUNG ALLER ANDEREN ZUTATEN
             if (baseInputs.length > 0) {
                 const primaryBaseInput = baseInputs[0];
                 const origGrams = parseFloat(primaryBaseInput.getAttribute('data-original-val')) || 1;
