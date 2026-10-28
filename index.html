@@ -94,11 +94,46 @@
         }
         .calc-val { display: inline-block; transition: color 0.3s; }
         .highlight-update { color: var(--accent-gold-light) !important; font-weight: bold; text-shadow: 0 0 8px rgba(212, 175, 55, 0.5); }
+
+        /* Floating Music Button */
+        .music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-copper);
+            color: var(--accent-gold-light);
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+            transition: transform 0.2s, background 0.2s;
+            user-select: none;
+        }
+        .music-toggle:hover {
+            background: var(--bg-card-hover);
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
     
-    <div class="landing-page" onclick="document.getElementById('cookbook-content').scrollIntoView({behavior: 'smooth'})">
+    <!-- Audio Player (unsichtbar) -->
+    <audio id="bg-music" loop>
+        <source src="soundtrack.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Mute/Unmute Button (wird erst beim Scrollen eingeblendet) -->
+    <div id="music-toggle-btn" class="music-toggle" onclick="toggleMusic()" style="display: none;">🔊</div>
+
+    <!-- Startseite mit Klick-Event -->
+    <div class="landing-page" onclick="startApp()">
         <img src="title.jpg" alt="Capt. Nemo cooking" class="landing-cover-img">
         <div class="scroll-down-hint">&#9660;</div>
     </div>
@@ -156,6 +191,7 @@
             </aside>
 
             <main>
+                <!-- KAPITEL 1 -->
                 <section id="kapitel-1">
                     <h2>Kapitel 1: Asiatische Wok- und Nudelgerichte</h2>
                     
@@ -667,6 +703,7 @@
                     </div>
                 </section>
                 
+                <!-- KAPITEL 2 -->
                 <section id="kapitel-2">
                     <h2>Kapitel 2: Gerichte aus dem 10-Liter-Schnellkochtopf</h2>
                     
@@ -771,6 +808,7 @@
                     </div>
                 </section>
                 
+                <!-- KAPITEL 3 -->
                 <section id="kapitel-3">
                     <h2>Kapitel 3: Klassiker und Grundrezepte</h2>
                     <div class="recipe-card" id="r-3-1">
@@ -835,6 +873,7 @@
                     </div>
                 </section>
                 
+                <!-- KAPITEL 5 -->
                 <section id="kapitel-5">
                     <h2>Kapitel 5: Backen und Teige</h2>
                     <div class="recipe-card" id="r-5-1">
@@ -919,7 +958,7 @@
                 </section>
             </main>
         </div>
-        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout) <span style="color:var(--accent-gold);">v4.1</span></footer>
+        <footer>Capt. Nemo cooking 20,000 leagues below &bull; Digitale Rezeptsammlung (Modernist Layout) <span style="color:var(--accent-gold);">v5.0</span></footer>
     </div>
     
     <!-- PWA Service Worker Start -->
@@ -931,8 +970,41 @@
         }
     </script>
 
-    <!-- Berechnungslogik -->
+    <!-- Audio & Interaktions-Skripte -->
     <script>
+        let musicStarted = false;
+        const bgMusic = document.getElementById('bg-music');
+        const musicToggleBtn = document.getElementById('music-toggle-btn');
+
+        // Funktion beim Tippen auf das Titelbild
+        function startApp() {
+            // Sanft nach unten scrollen
+            document.getElementById('cookbook-content').scrollIntoView({behavior: 'smooth'});
+            
+            // Musik beim ersten Klick starten
+            if (!musicStarted) {
+                bgMusic.volume = 0.5; // Auf angenehme 50% Lautstärke setzen
+                bgMusic.play().then(() => {
+                    musicStarted = true;
+                    musicToggleBtn.style.display = 'flex'; // Mute-Button einblenden
+                }).catch(err => {
+                    console.log("Audio konnte nicht gestartet werden (Browser-Blockade).");
+                });
+            }
+        }
+
+        // Funktion für den Mute/Unmute-Button unten rechts
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicToggleBtn.innerHTML = '🔊';
+            } else {
+                bgMusic.pause();
+                musicToggleBtn.innerHTML = '🔇';
+            }
+        }
+
+        // Originale Rezept-Berechnungslogik
         document.addEventListener('input', function(e) {
             const recipeCard = e.target.closest('.recipe-card');
             if (!recipeCard) return;
@@ -942,7 +1014,6 @@
             
             let ratio = 1;
 
-            // WENN DIE HAUPTZUTAT GEÄNDERT WIRD
             if (e.target.classList.contains('base-input')) {
                 const originalVal = parseFloat(e.target.getAttribute('data-original-val')) || 1;
                 const currentVal = parseFloat(e.target.value) || 0;
@@ -966,7 +1037,6 @@
                     }
                 });
 
-            // WENN DIE PORTIONEN GEÄNDERT WERDEN
             } else if (e.target.classList.contains('portion-input')) {
                 const basePortions = parseFloat(e.target.getAttribute('data-base-portions')) || 1;
                 const currentPortions = parseFloat(e.target.value) || 0;
@@ -983,7 +1053,6 @@
                 return;
             }
 
-            // BERECHNUNG ALLER ANDEREN ZUTATEN
             if (baseInputs.length > 0) {
                 const primaryBaseInput = baseInputs[0];
                 const origGrams = parseFloat(primaryBaseInput.getAttribute('data-original-val')) || 1;
