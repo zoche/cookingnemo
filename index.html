@@ -120,6 +120,17 @@
             background: var(--bg-card-hover);
             transform: scale(1.1);
         }
+    
+        .ios-hint { 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid var(--accent-copper); 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin: 2rem auto; 
+            text-align: center; 
+            max-width: 90%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
@@ -139,6 +150,13 @@
     </div>
     
     <div id="cookbook-content">
+
+    <!-- iPhone PWA Hint -->
+    <div class="ios-hint">
+        📱 <strong>cookingnemo als App auf dem iPhone installieren:</strong><br>
+        Tippe unten in Safari auf das Teilen-Symbol <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin: 0 4px;"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg> und wähle im Menü <strong>„Zum Home-Bildschirm“</strong> aus, um die Web-App direkt zu nutzen.
+    </div>
+
         <header>
             <div class="title-container">
                 <h1>Capt. Nemo cooking<br>20,000 leagues below</h1>
@@ -180,7 +198,7 @@
                     <li><a href="#kapitel-4">4. Fermentation</a>
                         <ul>
                             <li><a href="#r-4-1">4.1 Naturjoghurt</a></li>
-                            <li><a href="#r-4-2">4.2 Chilisauce</a></li>
+                            <li><a href="#r-4-2">4.2 Chilisauce (mit Charapita)</a></li>
                         </ul>
                     </li>
                     <li><a href="#kapitel-5">5. Backen (Teige)</a>
@@ -922,6 +940,107 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </section>
+                
+                
+                <section id="kapitel-4">
+                    <h2>Kapitel 4: Fermentation</h2>
+                    
+                    <div class="recipe-card" id="r-4-2">
+                        <h3>4.2 Fermentierte Floral-Citrus-Chilisauce (mit Charapita)</h3>
+                        <div class="recipe-meta">Dauer: 4-6 Wochen | Basis: <input type="number" class="portion-input" data-base-portions="1" value="1" step="0.5">x (Ansatz)</div>
+                        <img src="chilisauce.jpg" alt="Chilisauce" class="recipe-photo" onerror="this.style.display='none'">
+                        <table class="modernist">
+                            <thead>
+                                <tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Chili-Ernte gesamt</strong><br>
+                                        – Lemon Drop<br>
+                                        – Brasilianische Aromachili<br>
+                                        – Charapita<br>
+                                        – 7 Pot Bubblegum (samt Plazenta)
+                                    </td>
+                                    <td>
+                                        <input type="number" class="base-input" data-base-percent="100" data-original-val="1000" value="1000"> g<br>
+                                        <span class="calc-val" data-percent="44.0">440 g</span><br>
+                                        <span class="calc-val" data-percent="34.0">340 g</span><br>
+                                        <span class="calc-val" data-percent="15.0">150 g</span><br>
+                                        <span class="calc-val" data-percent="7.0">70 g</span>
+                                    </td>
+                                    <td>
+                                        100 %<br>
+                                        44 %<br>
+                                        34 %<br>
+                                        15 %<br>
+                                        7 %
+                                    </td>
+                                    <td>① <strong>Maische ansetzen:</strong> Chilis waschen und entstielen. Lemon Drop und 7 Pot grob schneiden (inkl. Kerne), die kleinen Sorten ganz lassen.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Knoblauch</strong> (geschält)<br>
+                                        <strong>Meersalz</strong> (unjodiert)
+                                    </td>
+                                    <td>
+                                        <span class="calc-val" data-percent="6.0">60 g</span><br>
+                                        <span class="calc-val" data-percent="2.8">28 g</span>
+                                    </td>
+                                    <td>
+                                        6,0 %<br>
+                                        2,65 %
+                                    </td>
+                                    <td>② <strong>Einsalzen & Zerkleinern:</strong> Chilis und Knoblauch zusammen abwiegen, darauf exakt 2,65 % Salz berechnen. Alles im Mixer (Kenwood Glasblender) zu einer stückigen Maische zerkleinern. Das Salz bricht sofort die Zellmembranen auf.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Gärglas mit Spund</strong><br>
+                                        <strong>Glasgewicht</strong>
+                                    </td>
+                                    <td>-<br>-</td>
+                                    <td>-<br>-</td>
+                                    <td>③ <strong>Fermentationsstart:</strong> Maische ins sterilisierte Gärglas füllen, Lufteinschlüsse fest nach unten herausdrücken. Oberfläche glattstreichen, Glasgewicht auflegen und absolut luftdicht verschließen.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Raumtemperatur</strong><br>
+                                        <strong>Reifezeit</strong>
+                                    </td>
+                                    <td>18-22 °C<br>4-6 Wo.</td>
+                                    <td>-<br>-</td>
+                                    <td>④ <strong>Reifephase:</strong> Dunkel lagern. Woche 1-2: Lebhafte CO2-Entwicklung (Lake perlt). Woche 3-6: Aktivität beruhigt sich, homofermentative Bakterien synthetisieren Milchsäure und setzen natürliches Umami frei.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Apfelessig</strong> (5 % Säure)<br>
+                                        <strong>Xanthan</strong> (optional)
+                                    </td>
+                                    <td>
+                                        <span class="calc-val" data-percent="12.0">120 g</span><br>
+                                        <span class="calc-val" data-percent="0.15">1.5 g</span>
+                                    </td>
+                                    <td>
+                                        12,0 %<br>
+                                        0,15 %
+                                    </td>
+                                    <td>⑤ <strong>Pürieren & Essig-Schnitt:</strong> Komplette Maische samt Lake in den Hochleistungsmixer umfüllen. Essig zugeben (senkt den pH unumkehrbar auf < 3,4). Samtig fein mixen, ggf. durch feines Sieb passieren. Xanthan einmixen.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Hitze</strong> (Pasteurisieren)
+                                    </td>
+                                    <td>85 °C<br>2 Min.</td>
+                                    <td>-</td>
+                                    <td>⑥ <strong>Abfüllen:</strong> Sauce im Topf unter Rühren auf 85 °C erhitzen, exakt 2 Min. halten (stoppt Nachgärung im Regal). Kochend heiß randvoll in sterile Tropfflaschen füllen und sofort verschließen.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:10px;">
+                            * (% des Gesamtgewichts: Chilis = 100 %. Achtung: Die 2,65 % Salz berechnen sich auf das Gesamtgewicht aus Chilis + Knoblauch)
+                        </p>
                     </div>
                 </section>
                 
