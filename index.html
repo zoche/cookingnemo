@@ -25,7 +25,7 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; }
+        body { background-color: var(--bg-deep); color: var(--text-main); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; overflow-x: hidden; width: 100%; }
 
         .landing-page { height: 100vh; width: 100%; position: relative; cursor: pointer; display: block; overflow: hidden; background-color: var(--bg-deep); }
         .landing-cover-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
@@ -50,7 +50,7 @@
         h2 { font-size: 2rem; color: var(--accent-gold); margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
         h3 { font-size: 1.4rem; color: var(--accent-copper); margin-top: 2rem; margin-bottom: 1rem; }
         
-        .recipe-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.8rem; margin-bottom: 2rem; transition: border-color 0.2s; }
+        .recipe-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.8rem; margin-bottom: 2rem; transition: border-color 0.2s; overflow-x: auto; width: 100%; }
         .recipe-card:hover { border-color: var(--accent-copper); }
         .recipe-meta { font-size: 0.9rem; color: var(--accent-copper); margin-bottom: 1rem; font-style: italic; }
         
@@ -187,7 +187,7 @@
                         <ul>
                             <li><a href="#r-2-1">2.1 Bohneneintopf</a></li>
                             <li><a href="#r-2-3">2.3 Chili con Carne</a></li>
-                            <li><a href="#r-2-4">2.4 Arrabbiata</a></li>
+                            <li><a href="#r-2-4">2.4 Arrabbiata-Konzentrat</a></li>
                         </ul>
                     </li>
                     <li><a href="#kapitel-3">3. Klassiker & Basics</a>
@@ -883,33 +883,51 @@
                     </div>
                     
                     <div class="recipe-card" id="r-2-4">
-                        <h3>2.4 Arrabbiata</h3>
-                        <div class="recipe-meta">Portionen: <input type="number" class="portion-input" data-base-portions="50" value="50" step="5"> (großer Ansatz) | <a href="https://youtu.be/T47wk45veHo" target="_blank" style="color:var(--accent-gold); text-decoration:underline;">Video-Anleitung ansehen</a></div>
+                        <h3>2.4 Arrabbiata-Konzentrat (Maillard-Reduktion)</h3>
+                        <div class="recipe-meta">Ansatz: <input type="number" class="portion-input" data-base-portions="1" value="1" step="0.5"> (Konzentrat) | <a href="https://youtu.be/T47wk45veHo" target="_blank" style="color:var(--accent-gold); text-decoration:underline;">Video-Anleitung ansehen</a></div>
                         <img src="arrabbiata.jpg" alt="Arrabbiata" class="recipe-photo" onerror="this.style.display='none'">
                         <table class="modernist">
                             <thead><tr><th>ZUTAT</th><th>MENGE</th><th>SKAL.*</th><th>ZUBEREITUNG</th></tr></thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Zwiebeln</strong> (z.B. Gemüsezwiebeln)<br><strong>Olivenöl</strong></td>
-                                    <td><span class="calc-val" data-percent="31.7">2000 g</span><br>n.B.</td>
-                                    <td>31,7 %<br>-</td>
-                                    <td>① Zwiebeln in reichlich Olivenöl auf höchster Druckstufe (116 °C) für 3 ½ Stunden im Schnellkochtopf garen, bis sie tiefbraun karamellisieren.</td>
+                                    <td><strong>Zwiebeln</strong> (Gemüsezwiebeln, gewürfelt)<br><strong>Salz</strong><br><strong>Natron</strong> (Natriumhydrogencarbonat)</td>
+                                    <td><input type="number" class="base-input" data-base-percent="100" data-original-val="1000" value="1000"> g<br><span class="calc-val" data-percent="3.6">36 g</span><br><span class="calc-val" data-percent="0.05">0.5 g</span></td>
+                                    <td>100 %<br>3,6 %<br>0,05 %</td>
+                                    <td>① <strong>Osmotischer Zellaufschluss:</strong> Zwiebeln, Salz und Natron im Schnellkochtopf vermengen. Unverschlossen 20 Min. ruhen lassen (Zellsaft tritt aus).</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Knoblauch</strong> (grob gewürfelt)<br><strong>Thai-Chilis</strong><br><strong>Chipotle-Pulver</strong></td>
-                                    <td><span class="calc-val" data-percent="1.43">90 g</span><br><span class="calc-val" data-percent="0.56">35 g</span><br><span class="calc-val" data-percent="0.63">40 g</span></td>
-                                    <td>1,43 %<br>0,56 %<br>0,63 %</td>
-                                    <td>② Topf öffnen. Knoblauch, Chilis und Chipotle unterrühren. Bei offenem Topf ca. 1 Stunde köcheln lassen, um die Flüssigkeit stark zu reduzieren.</td>
+                                    <td><strong>Hitze & Druck</strong></td>
+                                    <td>117 °C</td>
+                                    <td>-</td>
+                                    <td>② <strong>Maillard-Katalyse:</strong> Topf verriegeln und 60–75 Min. auf Druckstufe 2 garen. Danach per Natural Release (ca. 15-20 Min.) abkühlen lassen.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Passata mit Basilikum</strong><br><strong>Salz</strong></td>
-                                    <td><input type="number" class="base-input" data-base-percent="100" data-original-val="6300" value="6300"> g<br><span class="calc-val" data-percent="0.56">35 g</span></td>
-                                    <td>100 %<br>0,56 %</td>
-                                    <td>③ Passata (9x700g) hinzugeben und weitere 20 Minuten köcheln lassen. Mit Salz abschmecken.</td>
+                                    <td><strong>Reduktion</strong></td>
+                                    <td>120-130 °C</td>
+                                    <td>-</td>
+                                    <td>③ <strong>Einkochen:</strong> Zwiebelmasse in die Rührschüssel der Küchenmaschine geben und bei 120-130 °C unter Intervallrühren in 15–25 Min. sirupartig einreduzieren.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kalamata-Olivenöl</strong><br><strong>Chipotle-Pulver</strong><br><strong>Knoblauch</strong> (fein gewürfelt)<br><strong>Lemon Drop</strong> (gehackt)<br><strong>Brasilianische Aromachili</strong><br><strong>7 Pot Bubblegum</strong> (gehackt samt Plazenta)</td>
+                                    <td><span class="calc-val" data-percent="8.5">85 g</span><br><span class="calc-val" data-percent="2.0">20 g</span><br><span class="calc-val" data-percent="4.5">45 g</span><br><span class="calc-val" data-percent="1.1">11 g</span><br><span class="calc-val" data-percent="1.25">12.5 g</span><br><span class="calc-val" data-percent="0.15">1.5 g</span></td>
+                                    <td>8,5 %<br>2,0 %<br>4,5 %<br>1,1 %<br>1,25 %<br>0,15 %</td>
+                                    <td>④ <strong>Infusion:</strong> Olivenöl im Stiltopf auf 100-110 °C erwärmen. Gewürze, Knoblauch und Chilis hineingeben und 2-3 Min. leise perlen lassen (Aromenaufschluss).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Emulsion</strong></td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>⑤ Heiße Öl-Infusion zur reduzierten Zwiebelmasse gießen und bei ca. 100 °C 1-2 Min. zu einer hochglänzenden Emulsion verrühren.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Einwecken</strong> (Pressure Canning)</td>
+                                    <td>45 Min.</td>
+                                    <td>-</td>
+                                    <td>⑥ Heiße Paste in saubere Gläser füllen (1,5-2 cm Kopfraum). Im Schnellkochtopf auf Stufe 2 für 45 Min. sterilisieren. Ausschliesslich per Natural Release abkühlen.</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:10px;">* (% des Gesamtgewichts der Hauptzutat: Passata)</p>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:10px;">* (% des Gesamtgewichts: Zwiebeln. <strong>Am Serviertag:</strong> 3150 g Passata auf 1000 g Zwiebel-Einwaage aufkochen, ergibt perfekten Ziel-Salzgehalt von 0,86 %)</p>
                     </div>
                 </section>
                 
