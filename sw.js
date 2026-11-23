@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nemo-cooking-v11.13';
+const CACHE_NAME = 'nemo-cooking-v11.14';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
